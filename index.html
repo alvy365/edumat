@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Phosphor Icons for precise iconography -->
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
@@ -23,7 +23,7 @@
             --shadow-light: #ffffff;
             --shadow-dark: #c5d0db;
             
-            /* Pastel Colors for Icons */
+            /* Pastel Colors */
             --pastel-red-bg: #ffebee;
             --pastel-red-txt: #e53935;
             --pastel-blue-bg: #e3f2fd;
@@ -54,7 +54,7 @@
 
         #app-container {
             width: 100%;
-            max-width: 600px; /* Restrict width for tablet/desktop to keep mobile feel */
+            max-width: 600px;
             padding: 24px 20px;
             display: flex;
             flex-direction: column;
@@ -100,7 +100,6 @@
             box-shadow: 2px 2px 5px rgba(30, 41, 59, 0.4);
         }
 
-        /* Header section */
         .header {
             display: flex;
             align-items: center;
@@ -171,39 +170,29 @@
             color: var(--text-dark);
         }
 
-        /* Navigation Tabs */
         .tabs-container {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+            padding: 20px 16px;
         }
 
-        .tabs-scroll {
+        .tabs-wrap {
             display: flex;
+            flex-wrap: wrap;
             gap: 12px;
-            overflow-x: auto;
-            padding: 4px 4px 12px 4px; /* Padding for shadows */
-            margin: -4px -4px -12px -4px; /* Compensate padding */
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .tabs-scroll::-webkit-scrollbar {
-            display: none;
+            justify-content: flex-start; /* Aligns tabs to the left, wrapping as needed */
         }
 
         .tab-btn {
-            padding: 12px 20px;
+            padding: 10px 16px;
             border-radius: 30px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            white-space: nowrap;
+            white-space: nowrap; /* Keeps text inside button on one line */
             color: var(--text-muted);
+            flex: 0 0 auto; /* Allows buttons to size naturally based on content */
         }
 
         .tab-btn i {
-            font-size: 18px;
+            font-size: 16px;
         }
 
         .tab-btn.active {
@@ -212,7 +201,6 @@
             box-shadow: 4px 4px 10px rgba(30, 41, 59, 0.2);
         }
 
-        /* Section Header */
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -243,7 +231,6 @@
             border: 1px solid rgba(197, 208, 219, 0.4);
         }
 
-        /* Resource Cards */
         .cards-list {
             display: flex;
             flex-direction: column;
@@ -273,7 +260,7 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
-            min-width: 0; /* Prevents flex overflow */
+            min-width: 0;
         }
 
         .card-title {
@@ -325,7 +312,7 @@
             flex-shrink: 0;
             align-items: flex-end;
             position: relative;
-            padding-right: 28px; /* space for chevron */
+            padding-right: 28px;
         }
 
         .action-btn {
@@ -388,9 +375,9 @@
             </button>
         </header>
 
-        <!-- Navigation Tabs -->
+        <!-- Navigation Tabs (Static Wrapping Container) -->
         <nav class="tabs-container neu-outset">
-            <div class="tabs-scroll" id="tabs-scroll-container">
+            <div class="tabs-wrap" id="tabs-wrap-container">
                 <!-- Tabs injected by JS -->
             </div>
         </nav>
@@ -419,7 +406,7 @@
     </div>
 
     <script>
-        // Data Structure
+        // Data Structure for all requested categories
         const categories = [
             { id: 'qb', name: 'Question Banks', icon: 'ph-file-text', subtitle: 'Past papers, model questions and more' },
             { id: 'ab', name: 'Answer Banks', icon: 'ph-check-square', subtitle: 'Detailed solutions and grading rubrics' },
@@ -456,7 +443,7 @@
                 else desc = `Latest resources and materials updated for ${subject}.`;
 
                 items.push({
-                    title: `${subject} ${categoryName.slice(0, -1)}`,
+                    title: `${subject} ${categoryName.replace(/s$/, '')}`, // Removes plural 's' for title
                     year: '2nd Year',
                     batch: '2026',
                     desc: desc,
@@ -470,7 +457,7 @@
         let activeTabId = 'qb';
 
         // DOM Elements
-        const tabsContainer = document.getElementById('tabs-scroll-container');
+        const tabsWrapContainer = document.getElementById('tabs-wrap-container');
         const cardsContainer = document.getElementById('cards-container');
         const sectionTitleEl = document.getElementById('section-title');
         const sectionSubtitleEl = document.getElementById('section-subtitle');
@@ -482,7 +469,7 @@
         }
 
         function renderTabs() {
-            tabsContainer.innerHTML = '';
+            tabsWrapContainer.innerHTML = '';
             categories.forEach(cat => {
                 const btn = document.createElement('button');
                 btn.className = `tab-btn neu-button ${cat.id === activeTabId ? 'active' : 'neu-outset'}`;
@@ -491,11 +478,8 @@
                     activeTabId = cat.id;
                     renderTabs(); // Re-render to update active state
                     renderContent(); // Render new cards
-                    
-                    // Center the clicked tab
-                    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 };
-                tabsContainer.appendChild(btn);
+                tabsWrapContainer.appendChild(btn);
             });
         }
 

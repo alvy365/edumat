@@ -305,7 +305,6 @@
   <div class="resource-list" id="resource-list">
     <!-- Items rendered by JS -->
   </div>
-
 <script>
   const categoryData = {
     qb: {
@@ -324,20 +323,7 @@
     suggestions: { title: "Suggestions", subtitle: "Exam focus topics and shortlists", items: [] },
     notices: { title: "Notices", subtitle: "Important announcements and dates", items: [] },
     syllabus: { title: "Syllabus", subtitle: "Course outlines and modules", items: [] },
-    routine: { 
-      title: "Routine", 
-      subtitle: "Class schedules and timings", 
-      items: [
-        {
-          title: "Full Class Routine",
-          year: "2023-2024",
-          desc: "Govt. Teachers' Training College, Sylhet class routine (Landscape View).",
-          color: "color-blue",
-          isLocal: true,
-          localUrl: "Class routine.html"
-        }
-      ] 
-    },
+    routine: { title: "Routine", subtitle: "Class schedules and timings", items: [] },
     notes: { title: "Notes", subtitle: "Lecture notes and summaries", items: [] },
     books: { title: "Books", subtitle: "Reference materials and textbooks", items: [] },
     sheets: { title: "Sheets", subtitle: "Practice sheets and worksheets", items: [] }
@@ -362,18 +348,12 @@
     }
 
     data.items.forEach(item => {
-      let actionsHtml = '';
-      
-      if (item.isLocal) {
-        actionsHtml = `<a href="${item.localUrl}" class="btn btn-view" style="flex: 100%;">${svgEye} Open Routine Page</a>`;
-      } else {
-        const viewUrl = `https://drive.google.com/file/d/${item.fileId}/view`;
-        const dlUrl = `https://drive.google.com/uc?export=download&id=${item.fileId}`;
-        actionsHtml = `
-          <a href="${viewUrl}" target="_blank" class="btn btn-view">${svgEye} View</a>
-          <a href="${dlUrl}" class="btn btn-download">${svgDownload} Download</a>
-        `;
-      }
+      const viewUrl = `https://drive.google.com/file/d/${item.fileId}/view`;
+      const dlUrl = `https://drive.google.com/uc?export=download&id=${item.fileId}`;
+      const actionsHtml = `
+        <a href="${viewUrl}" target="_blank" class="btn btn-view">${svgEye} View</a>
+        <a href="${dlUrl}" class="btn btn-download">${svgDownload} Download</a>
+      `;
 
       const card = document.createElement('div');
       card.className = 'resource-card';
@@ -396,14 +376,24 @@
 
   document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', (e) => {
+      const category = e.target.dataset.category;
+      
+      // Auto-redirect logic for the Routine tab
+      if (category === 'routine') {
+        window.location.href = 'Class routine.html';
+        return;
+      }
+
+      // Standard behavior for all other tabs
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       e.target.classList.add('active');
-      renderList(e.target.dataset.category);
+      renderList(category);
     });
   });
 
   // Initial render
   renderList('qb');
 </script>
+
 </body>
 </html>

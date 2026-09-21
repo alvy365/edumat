@@ -4,266 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edumat - Resource Hub</title>
-<style>
-  :root {
-    --bg-color: #e8eff5;
-    --text-main: #2d3748;
-    --text-muted: #718096;
-    --shadow-light: #ffffff;
-    --shadow-dark: #c8d5e0;
-    --accent-dark: #1a202c;
-    
-    --icon-red: #ffe5e5;
-    --icon-red-text: #ff4d4d;
-    --icon-blue: #e5f0ff;
-    --icon-blue-text: #3b82f6;
-    --icon-green: #e5ffe5;
-    --icon-green-text: #22c55e;
-    --icon-purple: #f0e5ff;
-    --icon-purple-text: #a855f7;
-    --icon-orange: #ffeee5;
-    --icon-orange-text: #f97316;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  }
-
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    min-height: 100vh;
-    padding: 20px;
-    padding-bottom: 80px;
-  }
-
-  /* Header */
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 24px;
-    padding: 16px;
-    border-radius: 20px;
-    background: var(--bg-color);
-    box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
-  }
-  
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .logo-box {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: var(--accent-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-
-  .logo-box svg {
-    width: 24px;
-    height: 24px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-  }
-
-  .header-text h1 {
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  .header-text p {
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-
-  .menu-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: var(--bg-color);
-    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-main);
-  }
-
-  /* Static Wrap Tabs */
-  .tabs-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 24px;
-    padding: 4px;
-  }
-
-  .tab {
-    padding: 12px 20px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-muted);
-    border: none;
-    background: var(--bg-color);
-    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s ease;
-  }
-
-  .tab.active {
-    background: var(--accent-dark);
-    color: white;
-    box-shadow: inset 4px 4px 8px rgba(0,0,0,0.2), inset -4px -4px 8px rgba(255,255,255,0.1);
-  }
-
-  /* Section Header */
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 16px;
-  }
-
-  .section-title h2 {
-    font-size: 22px;
-    margin-bottom: 4px;
-  }
-
-  .section-title p {
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-
-  .item-count {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-muted);
-    padding: 6px 12px;
-    border-radius: 12px;
-    background: var(--bg-color);
-    box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
-  }
-
-  /* Resource Cards */
-  .resource-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .resource-card {
-    padding: 16px;
-    border-radius: 20px;
-    background: var(--bg-color);
-    box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .file-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .file-icon svg {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-  }
-
-  .card-content {
-    flex-grow: 1;
-    min-width: 0;
-  }
-
-  .card-content h3 {
-    font-size: 16px;
-    margin-bottom: 4px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .card-meta {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .card-desc {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .card-actions {
-    display: flex;
-    gap: 12px;
-  }
-
-  .btn {
-    flex: 1;
-    padding: 8px;
-    border-radius: 10px;
-    font-size: 12px;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    border: none;
-  }
-
-  .btn-view {
-    background: var(--accent-dark);
-    color: white;
-    box-shadow: 3px 3px 6px var(--shadow-dark);
-  }
-
-  .btn-download {
-    background: var(--bg-color);
-    color: var(--text-main);
-    box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
-  }
-
-  /* Icon Colors */
-  .color-red { background: var(--icon-red); color: var(--icon-red-text); }
-  .color-blue { background: var(--icon-blue); color: var(--icon-blue-text); }
-  .color-green { background: var(--icon-green); color: var(--icon-green-text); }
-  .color-purple { background: var(--icon-purple); color: var(--icon-purple-text); }
-  .color-orange { background: var(--icon-orange); color: var(--icon-orange-text); }
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -274,12 +15,30 @@
       </div>
       <div class="header-text">
         <h1>Edumat</h1>
-        <p>3rd semester study materials</p>
+        <p>3rd Semester Study Materials</p>
       </div>
     </div>
     <button class="menu-btn">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
     </button>
+  </div>
+
+  <div class="alerts-container">
+    <div class="alert-box alert-urgent">
+      <svg class="alert-icon" style="color: var(--icon-red-text);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+      <div>
+        <strong style="color: var(--icon-red-text); display: block; margin-bottom: 4px;">Urgent Announcement</strong>
+        Incourse exam is going on.
+      </div>
+    </div>
+    
+    <div class="alert-box alert-exam">
+      <svg class="alert-icon" style="color: var(--icon-blue-text);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      <div>
+        <strong style="color: var(--icon-blue-text); display: block; margin-bottom: 4px;">In-course Exam Routine</strong>
+        Sept 22. ICT EDUCATION PAPER-1. 
+      </div>
+    </div>
   </div>
 
   <div class="tabs-container" id="tabs">
@@ -306,120 +65,31 @@
     <!-- Items rendered by JS -->
   </div>
 
-<script>
-  const categoryData = {
-    qb: {
-      title: "Question Banks",
-      subtitle: "Past papers, model questions and more",
-      items: [
-        { title: "Educational Psych & Guidance", year: "2015-2024", desc: "Question Bank for Educational Psychological and Guidance.", color: "color-red", fileId: "1sGChbXE_InRGD69u5LA6l8Ueo-7iWyes" },
-        { title: "ICT Education Paper-1", year: "2015-2024", desc: "Question Bank for ICT Education Paper 1.", color: "color-blue", fileId: "1pp3DslWvl8T2qXeRKJWx1YGzBXMlwB3r" },
-        { title: "ICT in Education", year: "2016-2024", desc: "Question Bank for ICT in Education.", color: "color-green", fileId: "15vcLA8Qk_2DaNiUM1SWdKckx0QwI1iBw" },
-        { title: "English Question Bank", year: "2016-2024", desc: "Question Bank for English.", color: "color-purple", fileId: "1L9lyFvxDBIbHJMn-7aE-UrFjvsDwT7jM" },
-        { title: "Bangla Question Bank", year: "2016-2024", desc: "Question Bank for Bangla.", color: "color-orange", fileId: "1R4PHNfb8qeZO4aLENaIkm7GEe-0_XYnl" },
-        { title: "Math Question Bank", year: "2018-19, 23-24", desc: "Question Bank for Math.", color: "color-red", fileId: "1fvR6B8dneqgExUGbejylJ7w9RAXJCdhO" }
-      ]
-    },
-    ab: { title: "Answer Banks", subtitle: "Solved past papers and exercises", items: [] },
-    suggestions: { title: "Suggestions", subtitle: "Exam focus topics and shortlists", items: [] },
-    notices: { title: "Notices", subtitle: "Important announcements and dates", items: [] },
-    syllabus: { title: "Syllabus", subtitle: "Course outlines and modules", items: [] },
-    routine: { title: "Routine", subtitle: "Class schedules and timings", items: [] },
-        notes: { 
-      title: "Notes", 
-      subtitle: "Lecture notes and summaries", 
-      items: [
-        {
-          title: "ICT Education Paper 1 Note",
-          year: "2026",
-          desc: "আইসিটি বেসিক, ইনপুট-আউটপুট, RAM/ROM এবং কম্পিউটারের শ্রেণিবিভাগ নিয়ে সম্পূর্ণ নোট।",
-          color: "color-blue",
-          isLocal: true,
-          localUrl: "ict-note.html"
-        }
-      ] 
-    },
-
-    books: { title: "Books", subtitle: "Reference materials and textbooks", items: [] },
-    sheets: { title: "Sheets", subtitle: "Practice sheets and worksheets", items: [] }
-  };
-
-  // Premium Dual-Tone File Icon
-    const svgPremiumFile = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:28px; height:28px;">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="currentColor" fill-opacity="0.12" stroke="none"></path>
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-    <polyline points="14 2 14 8 20 8"></polyline>
-    <line x1="8" y1="13" x2="16" y2="13"></line>
-    <line x1="8" y1="17" x2="16" y2="17"></line>
-    <line x1="8" y1="9" x2="11" y2="9"></line>
-  </svg>`;
-
-  // Clean Calendar Icon
-  const svgCalendar = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px; vertical-align:-2px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>`;
-
-  const svgEye = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
-  const svgDownload = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
-
-  function renderList(category) {
-    const data = categoryData[category];
-    document.getElementById('section-title').textContent = data.title;
-    document.getElementById('section-subtitle').textContent = data.subtitle;
-    document.getElementById('item-count').textContent = `${data.items.length} resources`;
+  <div class="site-footer">
+    <div class="footer-section">
+      <h3>External Portals</h3>
+      <div class="footer-links">
+        <a href="http://www.nu.ac.bd/" target="_blank" class="footer-link">
+          National University Portal
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+        <a href="http://www.ttcsylhet.gov.bd/" target="_blank" class="footer-link">
+          Govt. Teachers' Training College, Sylhet
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </div>
+    </div>
     
-    const container = document.getElementById('resource-list');
-    container.innerHTML = '';
+    <div class="footer-section">
+      <h3>Contribute</h3>
+      <!-- EDIT YOUR PHONE NUMBER HERE -->
+      <a href="https://wa.me/8801989193680?text=Hi%20Alvy,%20I%20have%20a%20note%20to%20submit%20for%20Edumat." target="_blank" class="whatsapp-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Submit Notes to Alvy via WhatsApp
+      </a>
+    </div>
+  </div>
 
-    if(data.items.length === 0) {
-      container.innerHTML = `<p style="text-align:center; color: var(--text-muted); padding: 20px;">No resources uploaded yet.</p>`;
-      return;
-    }
-
-    data.items.forEach(item => {
-      const viewUrl = `https://drive.google.com/file/d/${item.fileId}/view`;
-      const dlUrl = `https://drive.google.com/uc?export=download&id=${item.fileId}`;
-      
-      const actionsHtml = `
-        <a href="${viewUrl}" target="_blank" class="btn btn-view">${svgEye} View</a>
-        <a href="${dlUrl}" target="_blank" class="btn btn-download">${svgDownload} Download</a>
-      `;
-
-      const card = document.createElement('div');
-      card.className = 'resource-card';
-      card.innerHTML = `
-        <div class="file-icon ${item.color}">${svgPremiumFile}</div>
-        <div class="card-content">
-          <h3>${item.title}</h3>
-          <div class="card-meta">
-            <span>${svgCalendar}${item.year}</span>
-          </div>
-          <div class="card-desc">${item.desc}</div>
-          <div class="card-actions">
-            ${actionsHtml}
-          </div>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-  }
-
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', (e) => {
-      const category = e.target.dataset.category;
-      
-      if (category === 'routine') {
-        window.location.href = 'Class routine.html';
-        return;
-      }
-
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      e.target.classList.add('active');
-      renderList(category);
-    });
-  });
-
-  // Initial render
-  renderList('qb');
-</script>
-
+<script src="app.js"></script>
 </body>
 </html>

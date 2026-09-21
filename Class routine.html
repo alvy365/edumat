@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title>Class Routine Replicated Final Editable</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 5mm 10mm;
+            background-color: #f4f7f6;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #1a2c33;
+            box-sizing: border-box;
+            background-color: #f4f7f6;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        /* Top Left Corner Shape */
+        .corner-shape {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: #0b3741;
+            border-radius: 0 0 35px 0;
+            z-index: 10;
+        }
+        .corner-shape svg {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 45px;
+            height: 45px;
+        }
+        
+        /* Leaves Decor */
+        .leaf-top {
+            position: absolute;
+            top: 0;
+            left: 70px;
+            width: 110px;
+            height: 110px;
+            z-index: 1;
+        }
+        .leaf-bottom {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            z-index: 1;
+        }
+
+        /* Top Right Date Badge */
+        .date-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #0b3741, #134e5b);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 9pt;
+            font-weight: 600;
+            display: inline-block;
+            z-index: 10;
+            box-shadow: 0 2px 6px rgba(11, 55, 65, 0.2);
+        }
+        .date-badge svg {
+            width: 12px;
+            height: 12px;
+            vertical-align: -2px;
+            margin-right: 5px;
+        }
+
+        /* Container for print alignment in web view */
+        .page-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1122px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #f4f7f6;
+            min-height: 790px;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            position: relative;
+            z-index: 5;
+            margin-top: 10px;
+            margin-bottom: 12px;
+        }
+        .header h1 {
+            margin: 0 0 4px 0;
+            font-size: 20pt;
+            color: #0b3741;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+        .header h2 {
+            margin: 0 0 6px 0;
+            font-size: 11pt;
+            color: #243b42;
+            font-weight: 500;
+        }
+        .academic-year {
+            display: inline-block;
+            font-size: 9.5pt;
+            font-weight: bold;
+            color: #0b3741;
+            vertical-align: middle;
+            background: #e2ece9;
+            padding: 3px 14px;
+            border-radius: 12px;
+        }
+        .academic-year svg {
+            vertical-align: middle;
+        }
+
+        /* Table Styles */
+        .table-container {
+            border: 1.5px solid #8baea4;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            page-break-inside: avoid;
+        }
+        table.routine {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            table-layout: fixed;
+        }
+        table.routine th, table.routine td {
+            border: 1px solid #d0deda;
+            padding: 6px 4px;
+            font-size: 8pt;
+            line-height: 1.35;
+        }
+        table.routine thead th {
+            font-weight: 700;
+            color: #ffffff;
+            background-color: #0b3741;
+            padding: 8px 4px;
+            font-size: 8.5pt;
+            letter-spacing: 0.3px;
+        }
+        
+        /* Routine cell internal text formatting */
+        table.routine td {
+            background-color: #ffffff;
+            transition: background 0.2s;
+        }
+        table.routine tbody tr:hover td:not(.day-col):not(.break-cell):not(.lunch-break-cell) {
+            background-color: #f7faf9;
+        }
+
+        .course-code {
+            font-weight: 700;
+            color: #0b3741;
+            display: block;
+            font-size: 8.5pt;
+        }
+        .course-name {
+            font-weight: 500;
+            color: #334e58;
+            display: block;
+        }
+        .course-teacher {
+            font-weight: 600;
+            color: #107c41;
+            display: block;
+        }
+        .course-location {
+            font-size: 7.5pt;
+            color: #627d98;
+            display: block;
+            font-style: italic;
+        }
+        
+        /* Column specifics */
+        .day-col {
+            background-color: #0b3741 !important;
+            color: #ffffff !important;
+            font-weight: bold;
+            font-size: 10pt;
+            width: 70px;
+            letter-spacing: 0.5px;
+        }
+        
+        .break-cell {
+            background-color: #e8f0ec;
+            font-weight: 700;
+            font-size: 9pt;
+            color: #243b42;
+            width: 34px;
+        }
+        .lunch-break-cell {
+            background-color: #e2ece9;
+            font-weight: 700;
+            font-size: 9pt;
+            color: #1b3b36;
+            width: 44px;
+        }
+        .vertical-text {
+            line-height: 1.6;
+        }
+        
+        .green-text {
+            color: #0f6638;
+            font-weight: 700;
+            background-color: #f0f7f4;
+            letter-spacing: 0.3px;
+        }
+
+        /* Bottom Detail Sections */
+        .details-wrapper {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            page-break-inside: avoid;
+        }
+        
+        .box {
+            border: 1px solid #8baea4;
+            border-radius: 10px;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 14px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        }
+        .box-title {
+            position: absolute;
+            top: -11px;
+            left: 15px;
+            background-color: #0b3741;
+            color: #ffffff;
+            padding: 4px 16px;
+            border-radius: 14px;
+            font-size: 8.5pt;
+            font-weight: bold;
+            line-height: 1.2;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(11, 55, 65, 0.2);
+        }
+        .box-title svg {
+            width: 10px;
+            height: 10px;
+            fill: #ffffff;
+            vertical-align: -1px;
+            margin-right: 4px;
+        }
+        
+        /* Courses Grid */
+        .courses-content {
+            padding: 14px 14px 10px 14px;
+            display: table;
+            width: 100%;
+            font-size: 8pt;
+            color: #1a2c33;
+            line-height: 1.5;
+        }
+        .courses-col {
+            display: table-cell;
+            width: 50%;
+            vertical-align: top;
+            padding-right: 20px;
+        }
+        .course-item {
+            margin-bottom: 5px;
+        }
+        
+        /* Teachers Grid */
+        .teachers-content {
+            padding: 14px 14px 8px 14px;
+            display: table;
+            width: 100%;
+            font-size: 8pt;
+            color: #1a2c33;
+        }
+        .teachers-col {
+            display: table-cell;
+            width: 33.33%;
+            vertical-align: top;
+            padding-right: 15px;
+        }
+        .teacher-item {
+            border-bottom: 1px solid #d8e3e0;
+            padding: 5px 0;
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 3px;
+        }
+        .teacher-icon {
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 14px;
+            height: 14px;
+            background-color: #0b3741;
+            border-radius: 50%;
+            text-align: center;
+        }
+        .teacher-icon svg {
+            width: 8px;
+            height: 8px;
+            vertical-align: 2px;
+        }
+
+        /* Copyright */
+        .copyright {
+            text-align: center;
+            font-size: 9pt;
+            color: #435c55;
+            font-weight: 600;
+            margin-top: 4px;
+            position: relative;
+            z-index: 5;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+    <!-- Background Decors -->
+    <div class="corner-shape">
+        <svg viewBox="0 0 24 24" fill="#ffffff">
+            <path fill="#ffffff" d="M12 2L1 7v2h22V7L12 2zM3 10h2v7H3v-7zm6 0h2v7H9v-7zm6 0h2v7h-2v-7zm6 0h2v7h-2v-7zM2 19h20v2H2v-2z"/>
+        </svg>
+    </div>
+    
+    <svg class="leaf-top" viewBox="0 0 100 100">
+        <path d="M10,80 Q30,70 80,10 Q60,40 20,50" stroke="#b8ccc6" stroke-width="2" fill="none"/>
+        <path d="M30,60 Q40,40 70,30 Q60,60 30,60 Z" fill="#b8ccc6" opacity="0.5"/>
+        <path d="M10,65 Q25,45 50,40 Q40,65 10,65 Z" fill="#b8ccc6" opacity="0.5"/>
+        <path d="M50,30 Q60,15 80,15 Q70,35 50,30 Z" fill="#b8ccc6" opacity="0.5"/>
+    </svg>
+    
+    <svg class="leaf-bottom" viewBox="0 0 100 100">
+        <path d="M90,20 Q70,30 20,90 Q40,60 80,50" stroke="#b8ccc6" stroke-width="2" fill="none"/>
+        <path d="M70,40 Q60,60 30,70 Q40,40 70,40 Z" fill="#b8ccc6" opacity="0.4"/>
+        <path d="M90,35 Q75,55 50,60 Q60,35 90,35 Z" fill="#b8ccc6" opacity="0.4"/>
+        <path d="M50,70 Q40,85 20,85 Q30,65 50,70 Z" fill="#b8ccc6" opacity="0.4"/>
+    </svg>
+
+    <div class="date-badge">
+        <svg viewBox="0 0 24 24" fill="#ffffff">
+            <path fill="#ffffff" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5zM7 12h5v5H7v-5z"/>
+        </svg>
+        ক্লাস শুরু: ০৫-০৭-২০২৬
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>সরকারি টিচার্স ট্রেনিং কলেজ, সিলেট</h1>
+        <h2>ব্যাচেলর অব এডুকেশন (অনার্স) ২য় বর্ষ ৩য় সেমিস্টারের ক্লাস রুটিন</h2>
+        <div class="academic-year">
+            <svg width="40" height="10"><line x1="0" y1="5" x2="35" y2="5" stroke="#0b3741"/><circle cx="37" cy="5" r="2" fill="#0b3741"/></svg>
+            <span style="margin: 0 8px;">শিক্ষাবর্ষঃ ২০২৩-২০২৪</span>
+            <svg width="40" height="10"><circle cx="3" cy="5" r="2" fill="#0b3741"/><line x1="5" y1="5" x2="40" y2="5" stroke="#0b3741"/></svg>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-container">
+        <table class="routine">
+            <thead>
+                <tr>
+                    <th style="width: 70px;">বার/সময়</th>
+                    <th style="width: 50px;">০৯.০০<br>০৯.১৫</th>
+                    <th>০৯.১৫<br>১০.১৫</th> 
+                    <th>১০.১৫<br>১১.১৫</th>
+                    <th style="width: 45px;">১১.১৫<br>১১.৩০</th>
+                    <th>১১.৩০<br>১২.৩০</th>
+                    <th>১২.৩০<br>০১.৩০</th>
+                    <th style="width: 44px;">০১.৩০<br>০২.৩০</th>
+                    <th>০২.৩০<br>০৩.৩০</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="day-col">রবিবার</td>
+                    <td rowspan="5" class="break-cell vertical-text" style="font-size: 10pt; line-height: 2.2;">স<br>মা<br>বে<br>শ</td>
+                    <td>
+                        <span class="course-code">CC-520323</span>
+                        <span class="course-name">Physics-I</span>
+                        <span class="course-teacher">R-MKM</span>
+                        <span class="course-location">Rest of all Library</span>
+                    </td>
+                    <td>
+                        <span class="course-code">CC-520311</span>
+                        <span class="course-name">Economics-I</span>
+                        <span class="course-teacher">R-RM</span>
+                        <span class="course-location">Rest of all Library</span>
+                    </td>
+                    <td rowspan="5" class="break-cell vertical-text" style="font-size: 9pt;">বি<br><br>র<br><br>তি</td>
+                    <td>
+                        <span class="course-code">CC-520307</span>
+                        <span class="course-name">English-I</span>
+                        <span class="course-teacher">R-MRR</span>
+                        <span class="course-location">Rest of all Library</span>
+                    </td>
+                    <td>
+                        <span class="course-code">CC-520329</span>
+                        <span class="course-name">MATH-I</span>
+                        <span class="course-teacher">R-HF</span>
+                        <span class="course-location">Rest of all Library</span>
+                    </td>
+                    <td rowspan="5" class="lunch-break-cell vertical-text">ম<br><br>ধ্যা<br><br>হ্ন<br><br><br><br>বি<br><br>র<br><br>তি</td>
+                    <td class="green-text">Library</td>
+                </tr>
+                <tr>
+                    <td class="day-col">সোমবার</td>
+                    <td>
+                        <span class="course-code">CC-520301</span>
+                        <span class="course-name">ICT</span>
+                        <span class="course-teacher">R-AH</span>
+                    </td>
+                    <td>
+                        <span class="course-code">CC-520307</span>
+                        <span class="course-name">English-I</span>
+                        <span class="course-teacher">R-BC</span>
+                        <span class="course-location">Rest of all Library</span>
+                    </td>
+                    <td class="green-text">Library</td>
+                    <td>
+                        <span class="course-code">CC-520329</span>
+                        <span class="course-name">MATH-I</span>
+                        <span class="course-teacher">R-UH</span>
+                        <span class="course-location">Rest of all Library</span>
+                    </td>
+                    <td class="green-text">Social Gathering</td>
+                </tr>
+                <tr>
+                    <td class="day-col">মঙ্গলবার</td>
+                    <td>
+                        <span class="course-code">CC-520303</span>
+                        <span class="course-name">EPG</span>
+                        <span class="course-teacher">R-SRS</span>
+                    </td>
+                    <td>
+                        <span class="course-code">CC-520311</span>
+                        <span class="course-name">Economics-I</span>
+                        <span class="course-teacher">R-RM</span>
+                        <span class="course-location">Rest of all Library</span>
+                    </td>
+                    <td class="green-text">Library</td>
+                    <td>
+                        <span class="course-code">CC-520323</span>
+                        <span class="course-name">Physics-I</span>
+                        <span class="course-teacher">R-MKM</span>
+                        <span class="course-location">Rest of all Library</span>
+                    </td>
+                    <td class="green-text">Library</td>
+                </tr>
+                <tr>
+                    <td class="day-col">বুধবার</td>
+                    <td>
+                        <span class="course-code">CC-520309</span>
+                        <span class="course-name">ICT P-I</span>
+                        <span class="course-teacher">R-NCB</span>
+                    </td>
+                    <td class="green-text">Library</td>
+                    <td>
+                        <span class="course-code">CC-520313</span>
+                        <span class="course-name">P.Sc-I</span>
+                        <span class="course-teacher">R-MSK</span>
+                        <span class="course-location">Rest of all Library</span>
+                    </td>
+                    <td>
+                        <span class="course-code">CC-520305</span>
+                        <span class="course-name">BANGLA P-I</span>
+                        <span class="course-teacher">R-NK</span>
+                        <span class="course-location">Rest of all Library</span>
+                    </td>
+                    <td class="green-text">Social Gathering</td>
+                </tr>
+                <tr>
+                    <td class="day-col">বৃহস্পতিবার</td>
+                    <td>
+                        <span class="course-code">CC-520313</span>
+                        <span class="course-name">P.Sc-I</span>
+                        <span class="course-teacher">R-SRS</span>
+                        <span class="course-location">Rest of all Library</span>
+                    </td>
+                    <td>
+                        <span class="course-code">CC-520309</span>
+                        <span class="course-name">ICT P-I</span>
+                        <span class="course-teacher">R-NCB</span>
+                    </td>
+                    <td>
+                        <span class="course-code">CC-520301</span>
+                        <span class="course-name">ICT</span>
+                        <span class="course-teacher">R-AH</span>
+                    </td>
+                    <td class="green-text">Library</td>
+                    <td class="green-text">Group Study</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Details Sections -->
+    <div class="details-wrapper">
+        <!-- Courses Box -->
+        <div class="box">
+            <div class="box-title">শ্রেণিকক্ষের বিবরণঃ কক্ষ নংঃ ৩০৩</div>
+            <div class="courses-content">
+                <div class="courses-col">
+                    <div class="course-item"><strong>1.</strong> CC-520301: ICT in Education - <strong>AH</strong></div>
+                    <div class="course-item"><strong>2.</strong> CC-520303: Educational Psychology and Guidance - <strong>SRS</strong></div>
+                    <div class="course-item"><strong>3.</strong> CC-520309: ICT Education Paper-I - <strong>NCB</strong></div>
+                    <div class="course-item"><strong>4.</strong> Area-I (CC-520305: Bangla Paper-I - <strong>NK</strong>; CC-520307: English Paper-I - <strong>BC/MRR</strong>)</div>
+                </div>
+                <div class="courses-col">
+                    <div class="course-item"><strong>5.</strong> Area-II (CC-520311: Economics Paper-I - <strong>RM</strong>; CC-520313: Political Science P-I - <strong>MSK/SRS</strong>)</div>
+                    <div class="course-item"><strong>6.</strong> Area-III (CC-520323: Physics Paper-I - <strong>MKM</strong>; CC-520329: Mathematics - <strong>HF/UH</strong>)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Teachers Box -->
+        <div class="box">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                শিক্ষকবৃন্দ
+            </div>
+            <div class="teachers-content">
+                <!-- Col 1 -->
+                <div class="teachers-col">
+                    <div class="teacher-item"><div class="teacher-icon"><svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div> প্রফেসর মোছাঃ নীলুফার খানম, <strong>NK</strong></div>
+                    <div class="teacher-item"><div class="teacher-icon"><svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div> প্রফেসর ড. মোহাম্মদ শামীম খান, <strong>MSK</strong></div>
+                    <div class="teacher-item"><div class="teacher-icon"><svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div> জনাব মোহাম্মদ খছরু মাহমুদ, <strong>MKM</strong></div>
+                    <div class="teacher-item" style="border-bottom: none;"><div class="teacher-icon"><svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div> জনাব হাসিনা ফেরদৌস, <strong>HF</strong></div>
+                </div>
+                <!-- Col 2 -->
+                <div class="teachers-col">
+                    <div class="teacher-item"><div class="teacher-icon"><svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div> জনাব রিজওয়ানা মতিন, <strong>RM</strong></div>
+                    <div class="teacher-item"><div class="teacher-icon"><svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div> জনাব উম্মে হাবিবা, <strong>UH</strong></div>
+                    <div class="teacher-item"><div class="teacher-icon"><svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div> জনাব নিরঞ্জন চন্দ্র ভৌমিক, <strong>NCB</strong></div>
+                    <div class="teacher-item" style="border-bottom: none;"><div class="teacher-icon"><svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div> জনাব শ্রী বিধান চক্রবর্তী, <strong>BC</strong></div>
+                </div>
+                <!-- Col 3 -->
+                <div class="teachers-col">
+                    <div class="teacher-item"><div class="teacher-icon"><svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div> জনাব মাহবুবুর রহমান রনি, <strong>MRR</strong></div>
+                    <div class="teacher-item"><div class="teacher-icon"><svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div> জনাব সাদেকুর রহমান সাত্তার, <strong>SRS</strong></div>
+                    <div class="teacher-item" style="border-bottom: none;"><div class="teacher-icon"><svg viewBox="0 0 24 24" fill="#ffffff"><path fill="#ffffff" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div> জনাব আলী হোসেন, <strong>AH</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright">
+      <i> &copy; Naimur Hasib Alvy </i>
+    </div>
+</div>
+</body>
+</html>

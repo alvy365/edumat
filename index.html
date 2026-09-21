@@ -1,0 +1,556 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Edumat - Batch Resources</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons for precise iconography -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        :root {
+            --bg-color: #e8eff5;
+            --text-dark: #2c3e50;
+            --text-muted: #6b7a90;
+            --accent-dark: #1e293b;
+            --shadow-light: #ffffff;
+            --shadow-dark: #c5d0db;
+            
+            /* Pastel Colors for Icons */
+            --pastel-red-bg: #ffebee;
+            --pastel-red-txt: #e53935;
+            --pastel-blue-bg: #e3f2fd;
+            --pastel-blue-txt: #1e88e5;
+            --pastel-green-bg: #e8f5e9;
+            --pastel-green-txt: #43a047;
+            --pastel-purple-bg: #f3e5f5;
+            --pastel-purple-txt: #8e24aa;
+            --pastel-orange-bg: #fff3e0;
+            --pastel-orange-txt: #fb8c00;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        #app-container {
+            width: 100%;
+            max-width: 600px; /* Restrict width for tablet/desktop to keep mobile feel */
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .neu-outset {
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+            background: var(--bg-color);
+            border-radius: 20px;
+        }
+
+        .neu-inset {
+            box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+            background: var(--bg-color);
+            border-radius: 20px;
+        }
+
+        .neu-button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .neu-button:active {
+            box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+        }
+
+        .neu-button-dark {
+            background: var(--accent-dark);
+            color: white;
+            box-shadow: 4px 4px 10px rgba(30, 41, 59, 0.3);
+        }
+        
+        .neu-button-dark:active {
+            transform: scale(0.97);
+            box-shadow: 2px 2px 5px rgba(30, 41, 59, 0.4);
+        }
+
+        /* Header section */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .app-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--accent-dark);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .header-titles h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .header-titles p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        .batch-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: transparent;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border: 1px solid rgba(197, 208, 219, 0.5);
+            margin-bottom: 4px;
+        }
+        
+        .batch-pill::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            background: #3b82f6;
+            border-radius: 50%;
+        }
+
+        .menu-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 24px;
+            color: var(--text-dark);
+        }
+
+        /* Navigation Tabs */
+        .tabs-container {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .tabs-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 4px 4px 12px 4px; /* Padding for shadows */
+            margin: -4px -4px -12px -4px; /* Compensate padding */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .tabs-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            color: var(--text-muted);
+        }
+
+        .tab-btn i {
+            font-size: 18px;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-dark);
+            color: white;
+            box-shadow: 4px 4px 10px rgba(30, 41, 59, 0.2);
+        }
+
+        /* Section Header */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 8px;
+        }
+
+        .section-title h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .section-title p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .resource-count {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(197, 208, 219, 0.4);
+        }
+
+        /* Resource Cards */
+        .cards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card {
+            display: flex;
+            padding: 16px;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .card-icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 0; /* Prevents flex overflow */
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--accent-dark);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-date {
+            font-size: 11px;
+            color: #8899ac;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 2px;
+        }
+
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex-shrink: 0;
+            align-items: flex-end;
+            position: relative;
+            padding-right: 28px; /* space for chevron */
+        }
+
+        .action-btn {
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            width: 115px;
+            justify-content: flex-start;
+        }
+
+        .action-btn i {
+            font-size: 14px;
+        }
+
+        .chevron-btn {
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app-container">
+        
+        <!-- Header -->
+        <header class="header neu-outset">
+            <div class="header-left">
+                <div class="app-icon">
+                    <i class="ph-fill ph-book-open-text"></i>
+                </div>
+                <div class="header-titles">
+                    <div class="batch-pill">Batch Resources</div>
+                    <h1>Edumat</h1>
+                    <p>Your batch's academic<br>resource hub</p>
+                </div>
+            </div>
+            <button class="neu-button neu-outset menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs-container neu-outset">
+            <div class="tabs-scroll" id="tabs-scroll-container">
+                <!-- Tabs injected by JS -->
+            </div>
+        </nav>
+
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-title">
+                <h2 id="section-title">Question Banks</h2>
+                <p id="section-subtitle">Past papers, model questions and more</p>
+            </div>
+            <div class="resource-count">
+                <i class="ph ph-faders"></i>
+                <span id="resource-count-text">0 resources</span>
+            </div>
+        </div>
+
+        <!-- Cards List -->
+        <main class="cards-list" id="cards-container">
+            <!-- Cards injected by JS -->
+        </main>
+
+        <div class="footer-note">
+            <i class="ph ph-graduation-cap"></i> Study smart. Build your future.
+        </div>
+
+    </div>
+
+    <script>
+        // Data Structure
+        const categories = [
+            { id: 'qb', name: 'Question Banks', icon: 'ph-file-text', subtitle: 'Past papers, model questions and more' },
+            { id: 'ab', name: 'Answer Banks', icon: 'ph-check-square', subtitle: 'Detailed solutions and grading rubrics' },
+            { id: 'suggestions', name: 'Suggestions', icon: 'ph-lightbulb', subtitle: 'Important topics and exam focus' },
+            { id: 'notices', name: 'Notices', icon: 'ph-bell-ringing', subtitle: 'Important announcements and updates' },
+            { id: 'syllabus', name: 'Syllabus', icon: 'ph-book-bookmark', subtitle: 'Course outlines and structures' },
+            { id: 'routine', name: 'Routine', icon: 'ph-calendar-blank', subtitle: 'Class and exam schedules' },
+            { id: 'notes', name: 'Notes', icon: 'ph-notebook', subtitle: 'Lecture notes and summaries' },
+            { id: 'books', name: 'Books', icon: 'ph-books', subtitle: 'Reference books and textbooks' },
+            { id: 'sheets', name: 'Sheets', icon: 'ph-files', subtitle: 'Formula sheets and quick references' }
+        ];
+
+        const pastelColors = [
+            { bg: 'var(--pastel-red-bg)', text: 'var(--pastel-red-txt)' },
+            { bg: 'var(--pastel-blue-bg)', text: 'var(--pastel-blue-txt)' },
+            { bg: 'var(--pastel-green-bg)', text: 'var(--pastel-green-txt)' },
+            { bg: 'var(--pastel-purple-bg)', text: 'var(--pastel-purple-txt)' },
+            { bg: 'var(--pastel-orange-bg)', text: 'var(--pastel-orange-txt)' }
+        ];
+
+        // Generator for mock items based on category
+        function generateMockItems(categoryName) {
+            const subjects = ['English', 'Mathematics', 'Physics', 'Chemistry', 'Biology', 'Computer Science'];
+            const count = Math.floor(Math.random() * 5) + 3; // 3 to 7 items
+            const items = [];
+            
+            for (let i = 0; i < count; i++) {
+                const subject = subjects[i % subjects.length];
+                let desc = '';
+                
+                if (categoryName.includes('Question')) desc = `Previous year questions and model questions for ${subject}.`;
+                else if (categoryName.includes('Answer')) desc = `Step-by-step verified solutions for ${subject} past papers.`;
+                else if (categoryName.includes('Suggestion')) desc = `Chapter-wise short and broad suggestions for ${subject}.`;
+                else desc = `Latest resources and materials updated for ${subject}.`;
+
+                items.push({
+                    title: `${subject} ${categoryName.slice(0, -1)}`,
+                    year: '2nd Year',
+                    batch: '2026',
+                    desc: desc,
+                    updated: `1${i + 2} Sep 2026`,
+                    iconClass: categoryName.includes('Routine') || categoryName.includes('Notice') ? 'ph-file-image' : 'ph-file-pdf'
+                });
+            }
+            return items;
+        }
+
+        let activeTabId = 'qb';
+
+        // DOM Elements
+        const tabsContainer = document.getElementById('tabs-scroll-container');
+        const cardsContainer = document.getElementById('cards-container');
+        const sectionTitleEl = document.getElementById('section-title');
+        const sectionSubtitleEl = document.getElementById('section-subtitle');
+        const resourceCountEl = document.getElementById('resource-count-text');
+
+        function init() {
+            renderTabs();
+            renderContent();
+        }
+
+        function renderTabs() {
+            tabsContainer.innerHTML = '';
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `tab-btn neu-button ${cat.id === activeTabId ? 'active' : 'neu-outset'}`;
+                btn.innerHTML = `<i class="ph ${cat.icon}"></i> ${cat.name}`;
+                btn.onclick = () => {
+                    activeTabId = cat.id;
+                    renderTabs(); // Re-render to update active state
+                    renderContent(); // Render new cards
+                    
+                    // Center the clicked tab
+                    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                };
+                tabsContainer.appendChild(btn);
+            });
+        }
+
+        function renderContent() {
+            const activeCategory = categories.find(c => c.id === activeTabId);
+            const items = generateMockItems(activeCategory.name);
+
+            // Update Headers
+            sectionTitleEl.textContent = activeCategory.name;
+            sectionSubtitleEl.textContent = activeCategory.subtitle;
+            resourceCountEl.textContent = `${items.length} resources`;
+
+            // Render Cards
+            cardsContainer.innerHTML = '';
+            items.forEach((item, index) => {
+                const colorTheme = pastelColors[index % pastelColors.length];
+                
+                const cardHTML = `
+                    <div class="card neu-outset">
+                        <div class="card-icon-box" style="background-color: ${colorTheme.bg}; color: ${colorTheme.text};">
+                            <i class="ph-fill ${item.iconClass}"></i>
+                        </div>
+                        
+                        <div class="card-content">
+                            <div class="card-title">${item.title}</div>
+                            <div class="card-meta">
+                                <span><i class="ph ph-graduation-cap"></i> ${item.year}</span>
+                                <span><i class="ph ph-calendar-blank"></i> ${item.batch}</span>
+                            </div>
+                            <div class="card-desc">${item.desc}</div>
+                            <div class="card-date">
+                                <i class="ph ph-clock"></i> Updated: ${item.updated}
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="neu-button action-btn neu-button-dark" onclick="window.open('#', '_blank')">
+                                <i class="ph ph-eye"></i> View Online
+                            </button>
+                            <button class="neu-button action-btn neu-outset" onclick="window.location.href='#'">
+                                <i class="ph ph-download-simple"></i> Download PDF
+                            </button>
+                            <button class="neu-button neu-outset chevron-btn">
+                                <i class="ph ph-caret-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                cardsContainer.insertAdjacentHTML('beforeend', cardHTML);
+            });
+        }
+
+        // Initialize App on load
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
+```

@@ -345,7 +345,6 @@
     </div>
   </div>
 <script>
-  // Tab Routing Logic for Syllabus Page
   document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', (e) => {
       const category = e.target.dataset.category;
@@ -368,65 +367,61 @@
       credits: "4",
       type: "Compulsory",
       units: [
-        { title: "Unit: One", items: [
-          "Concept, meaning and nature of ICT in Education[span_0](start_span)[span_0](end_span)"
+        { title: "Unit One", items: [
+          "Concept, meaning and nature of ICT in Education"
         ]},
-        { title: "Unit: Two", items: [
-          "Importance of ICT in Education:[span_1](start_span)[span_1](end_span)",
-          "Education e-Services (e.g. SMS/online result, admission, Edu Boards' services, etc.)[span_2](start_span)[span_2](end_span)",
-          "1. Learning[span_3](start_span)[span_3](end_span)",
-          "2. Teaching[span_4](start_span)[span_4](end_span)",
-          "3. Research and Development (RnD)[span_5](start_span)[span_5](end_span)",
-          "4. Administration/Automation[span_6](start_span)[span_6](end_span)"
+        { title: "Unit Two: Importance of ICT in Education", items: [
+          "Education e-Services (e.g. SMS/online result, admission, Edu Boards' services, etc.)",
+          "1. Learning",
+          "2. Teaching",
+          "3. Research and Development (RnD)",
+          "4. Administration/Automation"
         ]},
-        { title: "Unit: Three", items: [
-          "Changes in Education through ICTs reference to Curriculum, Instructional Design, Role of Teacher, Methods of Teaching, ICT-Pedagogy Integration, Classroom Environment, Evaluation procedure, Educational management.[span_7](start_span)[span_7](end_span)",
-          "Challenges in integrating Information & Communication Technology in school education of Bangladesh.[span_8](start_span)[span_8](end_span)"
+        { title: "Unit Three", items: [
+          "Changes in Education through ICTs reference to Curriculum, Instructional Design, Role of Teacher, Methods of Teaching, ICT-Pedagogy Integration, Classroom Environment, Evaluation procedure, Educational management.",
+          "Challenges in integrating Information & Communication Technology in school education of Bangladesh."
         ]},
-        { title: "Unit: Four", items: [
-          "Recent ICT in Education initiatives in Bangladesh:[span_9](start_span)[span_9](end_span)",
-          "Multimedia Classroom (Objective, importance, changes, etc.)[span_10](start_span)[span_10](end_span)",
-          "Planning of Digital Content[span_11](start_span)[span_11](end_span)",
-          "1. Introduction of Teachers' Portal (Shikkhok Batayon)[span_12](start_span)[span_12](end_span)",
-          "2. Education in Television[span_13](start_span)[span_13](end_span)",
-          "3. Comparative analysis of ICT in Education: Bangladesh and other developing countries[span_14](start_span)[span_14](end_span)",
-          "4. Others[span_15](start_span)[span_15](end_span)"
+        { title: "Unit Four: Recent ICT in Education initiatives in Bangladesh", items: [
+          "Multimedia Classroom (Objective, importance, changes, etc.)",
+          "Planning of Digital Content",
+          "1. Introduction of Teachers' Portal (Shikkhok Batayon)",
+          "2. Education in Television",
+          "3. Comparative analysis of ICT in Education: Bangladesh and other developing countries",
+          "4. Others"
         ]},
-        { title: "Unit: Five", items: [
-          "Opportunities:[span_16](start_span)[span_16](end_span)",
-          "1. E-Learning/online learning (BoU, DU, TTCs, etc.)[span_17](start_span)[span_17](end_span)",
-          "2. E-Conferencing[span_18](start_span)[span_18](end_span)",
-          "3. Virtual Classroom[span_19](start_span)[span_19](end_span)",
-          "4. Virtual University[span_20](start_span)[span_20](end_span)",
-          "5. Education TV[span_21](start_span)[span_21](end_span)",
-          "6. Others[span_22](start_span)[span_22](end_span)",
-          "Policies and strategies for ICT in Education in Bangladesh[span_23](start_span)[span_23](end_span)",
-          "1. ICT in Education Master Plan[span_24](start_span)[span_24](end_span)",
-          "2. National Education Policy 2011 (ICT in Education parts)[span_25](start_span)[span_25](end_span)",
-          "3. National ICT Policy 2009 (Education parts)[span_26](start_span)[span_26](end_span)",
-          "4. Others[span_27](start_span)[span_27](end_span)"
+        { title: "Unit Five", items: [
+          "Opportunities:",
+          "1. E-Learning/online learning (BoU, DU, TTCs, etc.)",
+          "2. E-Conferencing",
+          "3. Virtual Classroom",
+          "4. Virtual University",
+          "5. Education TV",
+          "6. Others",
+          "Policies and strategies for ICT in Education in Bangladesh",
+          "1. ICT in Education Master Plan",
+          "2. National Education Policy 2011 (ICT in Education parts)",
+          "3. National ICT Policy 2009 (Education parts)",
+          "4. Others"
         ]},
-        { title: "Unit: Six", items: [
-          "Education Tools:[span_28](start_span)[span_28](end_span)",
-          "1. Application of MS-Word, PowerPoint, Excel, Access for educational uses[span_29](start_span)[span_29](end_span)",
-          "1. MS Word: Prepare question paper, Class routine, Bio-Data/Resume, Meeting Resolution, assignment, Article[span_30](start_span)[span_30](end_span)",
-          "2. MS Excel: Prepare tabulation sheet of Total Average, Max and Min number, Sort, GPA and grade using formula, graph and chart, school budget[span_31](start_span)[span_31](end_span)",
-          "3. MS Power point: Prepare subject base Digital Content using Image, animation, video, smart art[span_32](start_span)[span_32](end_span)",
-          "2. Educational Blog/portal[span_33](start_span)[span_33](end_span)",
-          "3. E-book[span_34](start_span)[span_34](end_span)",
-          "4. Google Drive[span_35](start_span)[span_35](end_span)",
-          "5. Moodle[span_36](start_span)[span_36](end_span)",
-          "6. Social Networking (e.g. Facebook, Twitter, etc.)[span_37](start_span)[span_37](end_span)",
-          "7. YouTube[span_38](start_span)[span_38](end_span)",
-          "8. Skype[span_39](start_span)[span_39](end_span)",
-          "9. others[span_40](start_span)[span_40](end_span)"
+        { title: "Unit Six: Education Tools", items: [
+          "1. Application of MS-Word, PowerPoint, Excel, Access for educational uses",
+          "1. MS Word: Prepare question paper, Class routine, Bio-Data/Resume, Meeting Resolution, assignment, Article",
+          "2. MS Excel: Prepare tabulation sheet of Total Average, Max and Min number, Sort, GPA and grade using formula, graph and chart, school budget",
+          "3. MS Power point: Prepare subject base Digital Content using Image, animation, video, smart art",
+          "2. Educational Blog/portal",
+          "3. E-book",
+          "4. Google Drive",
+          "5. Moodle",
+          "6. Social Networking (e.g. Facebook, Twitter, etc.)",
+          "7. YouTube",
+          "8. Skype",
+          "9. others"
         ]},
-        { title: "Unit: Seven", items: [
-          "Legal & Ethical issues:[span_41](start_span)[span_41](end_span)",
-          "10. Managing student's access[span_42](start_span)[span_42](end_span)",
-          "11. Gender equity[span_43](start_span)[span_43](end_span)",
-          "12. Reduce Digital Divide[span_44](start_span)[span_44](end_span)",
-          "13. Safety and Security[span_45](start_span)[span_45](end_span)"
+        { title: "Unit Seven: Legal & Ethical issues", items: [
+          "10. Managing student's access",
+          "11. Gender equity",
+          "12. Reduce Digital Divide",
+          "13. Safety and Security"
         ]}
       ]
     },
@@ -439,62 +434,62 @@
       type: "Compulsory",
       units: [
         { title: "Unit 1: Basic terms and concepts of psychology and Educational Psychology", items: [
-          "a) Concept, nature, scope and branches of Psychology[span_46](start_span)[span_46](end_span)",
-          "b) Concept, nature, scope and branches of Educational Psychology[span_47](start_span)[span_47](end_span)",
-          "c) Aims and objectives of Educational Psychology[span_48](start_span)[span_48](end_span)",
-          "d) Focal areas, importance and needs of Educational Psychology[span_49](start_span)[span_49](end_span)",
-          "e) Educational Psychology in decision making[span_50](start_span)[span_50](end_span)",
-          "f) Methods of Educational Psychology[span_51](start_span)[span_51](end_span)"
+          "a) Concept, nature, scope and branches of Psychology",
+          "b) Concept, nature, scope and branches of Educational Psychology",
+          "c) Aims and objectives of Educational Psychology",
+          "d) Focal areas, importance and needs of Educational Psychology",
+          "e) Educational Psychology in decision making",
+          "f) Methods of Educational Psychology"
         ]},
         { title: "Unit 2: Heredity & Environment", items: [
-          "a) Concepts of Heredity and Environment[span_52](start_span)[span_52](end_span)",
-          "b) Nature of Heredity - Zane, chromosome, and cell division[span_53](start_span)[span_53](end_span)",
-          "c) Impact of heredity and environment in person's development[span_54](start_span)[span_54](end_span)",
-          "d) Heredity and environment in learning and education[span_55](start_span)[span_55](end_span)"
+          "a) Concepts of Heredity and Environment",
+          "b) Nature of Heredity - Zane, chromosome, and cell division",
+          "c) Impact of heredity and environment in person's development",
+          "d) Heredity and environment in learning and education"
         ]},
         { title: "Unit 3: Adolescence", items: [
-          "a) Concept of adolescence - Physical, mental, social and emotional development of adolescence[span_56](start_span)[span_56](end_span)",
-          "b) Problem and needs of adolescence, and its remedies[span_57](start_span)[span_57](end_span)"
+          "a) Concept of adolescence - Physical, mental, social and emotional development of adolescence",
+          "b) Problem and needs of adolescence, and its remedies"
         ]},
         { title: "Unit 4: Learning Theories", items: [
-          "a) Concept and nature of learning[span_58](start_span)[span_58](end_span)",
-          "b) Learning theories - Connectionism(E.L.Thorndike), Classical Conditioning (Pavlov), Operant Conditioning (B.F.Skinner), Constructivism (Vigotosky), and its application to classroom learning[span_59](start_span)[span_59](end_span)",
-          "c) Insightful Learning theories and their application[span_60](start_span)[span_60](end_span)",
-          "d) J.S Bruner's and Piaget's theory of Cognitive Development[span_61](start_span)[span_61](end_span)",
-          "e) Styles of Learning[span_62](start_span)[span_62](end_span)"
+          "a) Concept and nature of learning",
+          "b) Learning theories - Connectionism(E.L.Thorndike), Classical Conditioning (Pavlov), Operant Conditioning (B.F.Skinner), Constructivism (Vigotosky), and its application to classroom learning",
+          "c) Insightful Learning theories and their application",
+          "d) J.S Bruner's and Piaget's theory of Cognitive Development",
+          "e) Styles of Learning"
         ]},
         { title: "Unit 5: Motivation, Emotion and Attention in Learning", items: [
-          "a) Concepts of motivation, its characteristics, and motivation cycle[span_63](start_span)[span_63](end_span)",
-          "b) Characteristics of motivated behavior, Motivation techniques in teaching[span_64](start_span)[span_64](end_span)",
-          "c) Concept, nature, characteristics and types of emotion[span_65](start_span)[span_65](end_span)",
-          "d) Influence of anxiety/emotion on learning, positive use of emotion( by teachers)[span_66](start_span)[span_66](end_span)",
-          "e) Concepts of attention, its characteristics,[span_67](start_span)[span_67](end_span)",
-          "f) Causes/conditions of attention,[span_68](start_span)[span_68](end_span)",
-          "g) Creating attention strategies among learners[span_69](start_span)[span_69](end_span)"
+          "a) Concepts of motivation, its characteristics, and motivation cycle",
+          "b) Characteristics of motivated behavior, Motivation techniques in teaching",
+          "c) Concept, nature, characteristics and types of emotion",
+          "d) Influence of anxiety/emotion on learning, positive use of emotion( by teachers)",
+          "e) Concepts of attention, its characteristics,",
+          "f) Causes/conditions of attention,",
+          "g) Creating attention strategies among learners"
         ]},
-        { title: "Unit 6: Personality and", items: [
-          "a) Concept and elements of personality[span_70](start_span)[span_70](end_span)",
-          "b) Measurement of personality, Personality and education[span_71](start_span)[span_71](end_span)"
+        { title: "Unit 6: Personality", items: [
+          "a) Concept and elements of personality",
+          "b) Measurement of personality, Personality and education"
         ]},
         { title: "Unit 7: Intelligence", items: [
-          "a) Concept and theory of intelligence[span_72](start_span)[span_72](end_span)",
-          "b) Measurement of intelligences - Scales and importance in education, Individual and group differences in Intelligence[span_73](start_span)[span_73](end_span)",
-          "c) H.Gardners theory of intelligence(MIT)[span_74](start_span)[span_74](end_span)",
-          "d) Gender differences in intellectual functioning[span_75](start_span)[span_75](end_span)"
+          "a) Concept and theory of intelligence",
+          "b) Measurement of intelligences - Scales and importance in education, Individual and group differences in Intelligence",
+          "c) H.Gardners theory of intelligence(MIT)",
+          "d) Gender differences in intellectual functioning"
         ]},
         { title: "Unit 8: Special Learners", items: [
-          "a) Defining exceptional learners, Types[span_76](start_span)[span_76](end_span)",
-          "b) Concept of Juvenile Delinquency, Causes and remedies[span_77](start_span)[span_77](end_span)",
-          "c) Education for exceptional/special children, and guidelines for teaching[span_78](start_span)[span_78](end_span)",
-          "d) Concept of creativity, characteristics of creative person, way of/role of teacher foster creativity[span_79](start_span)[span_79](end_span)",
-          "e) Autism[span_80](start_span)[span_80](end_span)"
+          "a) Defining exceptional learners, Types",
+          "b) Concept of Juvenile Delinquency, Causes and remedies",
+          "c) Education for exceptional/special children, and guidelines for teaching",
+          "d) Concept of creativity, characteristics of creative person, way of/role of teacher foster creativity",
+          "e) Autism"
         ]},
         { title: "Unit 9: Guidance and Counseling", items: [
-          "a) Concept and types of guidance[span_81](start_span)[span_81](end_span)",
-          "b) Principles of guidance, needs of guidance in education/for learners[span_82](start_span)[span_82](end_span)",
-          "c) Concept and types of counseling[span_83](start_span)[span_83](end_span)",
-          "d) Needs and importance of Guidance and Counseling in educational arena[span_84](start_span)[span_84](end_span)",
-          "e) Qualifications and qualities of counselor, techniques of counseling[span_85](start_span)[span_85](end_span)"
+          "a) Concept and types of guidance",
+          "b) Principles of guidance, needs of guidance in education/for learners",
+          "c) Concept and types of counseling",
+          "d) Needs and importance of Guidance and Counseling in educational arena",
+          "e) Qualifications and qualities of counselor, techniques of counseling"
         ]}
       ]
     },
@@ -507,92 +502,92 @@
       type: "Compulsory",
       units: [
         { title: "UNIT 1 INTRODUCTION TO INFORMATION AND COMMUNICATIONS TECHNOLOGY (ICT)", items: [
-          "Definition of ICT, related basic concepts and terminologies e.g.[span_86](start_span)[span_86](end_span)",
-          "Information and Communications Technology (ICT)[span_87](start_span)[span_87](end_span)",
-          "Information and Communication Technologies (ICTs)[span_88](start_span)[span_88](end_span)",
-          "Data[span_89](start_span)[span_89](end_span)",
-          "Information[span_90](start_span)[span_90](end_span)",
-          "Information Processing Cycle Stage 1 - Receiving data (Input operation)[span_91](start_span)[span_91](end_span)",
-          "Stage 2 - Processing data (Processing operation)[span_92](start_span)[span_92](end_span)",
-          "Stage 3 - Display information (Output operation)[span_93](start_span)[span_93](end_span)",
-          "Stage 4 - Storing information (Storage operation)[span_94](start_span)[span_94](end_span)"
+          "Definition of ICT, related basic concepts and terminologies e.g.",
+          "Information and Communications Technology (ICT)",
+          "Information and Communication Technologies (ICTs)",
+          "Data",
+          "Information",
+          "Information Processing Cycle Stage 1 - Receiving data (Input operation)",
+          "Stage 2 - Processing data (Processing operation)",
+          "Stage 3 - Display information (Output operation)",
+          "Stage 4 - Storing information (Storage operation)"
         ]},
         { title: "UNIT 2 INTRODUCTION TO COMPUTERS", items: [
-          "Classification of Computers[span_95](start_span)[span_95](end_span)",
-          "Capacity and size[span_96](start_span)[span_96](end_span)",
-          "Supercomputer, Mainframe computer - Microcomputer etc.[span_97](start_span)[span_97](end_span)",
-          "Purpose: General purpose - Specific purpose[span_98](start_span)[span_98](end_span)",
-          "Type: Digital - Hybrid - Analog[span_99](start_span)[span_99](end_span)",
-          "Booting, Rebooting and Shutting Down of Computer[span_100](start_span)[span_100](end_span)",
-          "Booting is the act of putting on the computer.[span_101](start_span)[span_101](end_span)",
-          "Rebooting is the act of restarting the computer.[span_102](start_span)[span_102](end_span)",
-          "Shutting down is the act of putting off the computer.[span_103](start_span)[span_103](end_span)"
+          "Classification of Computers",
+          "Capacity and size",
+          "Supercomputer, Mainframe computer - Microcomputer etc.",
+          "Purpose: General purpose - Specific purpose",
+          "Type: Digital - Hybrid - Analog",
+          "Booting, Rebooting and Shutting Down of Computer",
+          "Booting is the act of putting on the computer.",
+          "Rebooting is the act of restarting the computer.",
+          "Shutting down is the act of putting off the computer."
         ]},
         { title: "UNIT: 3 NUMBER SYSTEMS", items: [
-          "History of inventing Numbers[span_104](start_span)[span_104](end_span)",
-          "Number System: Classification of Number System, Conversion of Numbers[span_105](start_span)[span_105](end_span)",
-          "Addition and Subtraction in Binary System[span_106](start_span)[span_106](end_span)",
-          "Code: Concept of Code, BCD, EBCDIC, Alphanumeric code, ASCII, Unicode[span_107](start_span)[span_107](end_span)",
-          "Boolean Algebra[span_108](start_span)[span_108](end_span)",
-          "Boolean Theorem[span_109](start_span)[span_109](end_span)",
-          "De Morgan's Theorem[span_110](start_span)[span_110](end_span)",
-          "Truth Table[span_111](start_span)[span_111](end_span)",
-          "Logic gates: AND, OR, NOT gate[span_112](start_span)[span_112](end_span)"
+          "History of inventing Numbers",
+          "Number System: Classification of Number System, Conversion of Numbers",
+          "Addition and Subtraction in Binary System",
+          "Code: Concept of Code, BCD, EBCDIC, Alphanumeric code, ASCII, Unicode",
+          "Boolean Algebra",
+          "Boolean Theorem",
+          "De Morgan's Theorem",
+          "Truth Table",
+          "Logic gates: AND, OR, NOT gate"
         ]},
         { title: "UNIT 4 COMPUTER HARDWARE", items: [
-          "The Vital Components of the Systems Unit e.g.[span_113](start_span)[span_113](end_span)",
-          "Front Side: power switch light indicators, floppy and CD ROM drive etc.[span_114](start_span)[span_114](end_span)",
-          "Back side: USB ports, serial ports, power socket,[span_115](start_span)[span_115](end_span)",
-          "Inside: motherboard, CPU, power supply, memory, hard disk, cards e.g. sound, network[span_116](start_span)[span_116](end_span)",
-          "Categories of the Computer Hardware:[span_117](start_span)[span_117](end_span)",
-          "Input devices[span_118](start_span)[span_118](end_span)",
-          "Processing devices[span_119](start_span)[span_119](end_span)",
-          "Output devices[span_120](start_span)[span_120](end_span)",
-          "Storage devices.[span_121](start_span)[span_121](end_span)",
-          "Communication devices[span_122](start_span)[span_122](end_span)"
+          "The Vital Components of the Systems Unit e.g.",
+          "Front Side: power switch light indicators, floppy and CD ROM drive etc.",
+          "Back side: USB ports, serial ports, power socket,",
+          "Inside: motherboard, CPU, power supply, memory, hard disk, cards e.g. sound, network",
+          "Categories of the Computer Hardware:",
+          "Input devices",
+          "Processing devices",
+          "Output devices",
+          "Storage devices.",
+          "Communication devices"
         ]},
         { title: "UNIT 5 COMPUTER SOFTWARE", items: [
-          "Main Processing devices[span_123](start_span)[span_123](end_span)",
-          "The Processor[span_124](start_span)[span_124](end_span)",
-          "Control Unit and Arithmetic and Logic Unit[span_125](start_span)[span_125](end_span)",
-          "Types of Software Packages[span_126](start_span)[span_126](end_span)",
-          "System software. e.g. Operating system software[span_127](start_span)[span_127](end_span)",
-          "Application Software e.g. Word Processing, Spreadsheet[span_128](start_span)[span_128](end_span)",
-          "Differences between Operating System and Application software[span_129](start_span)[span_129](end_span)",
-          "Types and uses of Operating System and Application software Operating System.e.g.[span_130](start_span)[span_130](end_span)",
-          "Operating Systems e.g. DOS, Windows, (windows 98, 2000, ME, XP, Vista, Windows 7) Linux, Unix, Ubuntu, Macintosh etc.[span_131](start_span)[span_131](end_span)",
-          "Application Software e.g. Word-processing: WORD, spreadsheets: EXCEL, Databases: Access, Presentation: PowerPoint, Educational software, Games software[span_132](start_span)[span_132](end_span)",
-          "Browsers: Internet explorer, Google chrome, Mozilla Firefox, Opera, Internet explorer, Mozilla Firefox[span_133](start_span)[span_133](end_span)",
-          "Authoring: Dream weaver, FrontPage, Graphics software, Desktop Publisher - Page Maker, Publisher[span_134](start_span)[span_134](end_span)",
-          "Differences Between Proprietary and Open Source Software[span_135](start_span)[span_135](end_span)"
+          "Main Processing devices",
+          "The Processor",
+          "Control Unit and Arithmetic and Logic Unit",
+          "Types of Software Packages",
+          "System software. e.g. Operating system software",
+          "Application Software e.g. Word Processing, Spreadsheet",
+          "Differences between Operating System and Application software",
+          "Types and uses of Operating System and Application software Operating System.e.g.",
+          "Operating Systems e.g. DOS, Windows, (windows 98, 2000, ME, XP, Vista, Windows 7) Linux, Unix, Ubuntu, Macintosh etc.",
+          "Application Software e.g. Word-processing: WORD, spreadsheets: EXCEL, Databases: Access, Presentation: PowerPoint, Educational software, Games software",
+          "Browsers: Internet explorer, Google chrome, Mozilla Firefox, Opera, Internet explorer, Mozilla Firefox",
+          "Authoring: Dream weaver, FrontPage, Graphics software, Desktop Publisher - Page Maker, Publisher",
+          "Differences Between Proprietary and Open Source Software"
         ]},
         { title: "UNIT 6 INTRODUCTION TO WORD PROCESSING APPLICATION, EDITING TEXT IN WORD PROCESSING DOCUMENT, FORMATTING, INSERTING TABLES AND SYMBOLS IN WORD PROCESSING DOCUMENT, CREATING AND PRINTING EDUCATIONAL DOCUMENTS", items: [
-          "Creating Document Using a Word Processor Saving Document Using the 'Save As' command[span_136](start_span)[span_136](end_span)",
-          "Editing Word Document Using Common Editing Tools:[span_137](start_span)[span_137](end_span)",
-          "Spell check functions[span_138](start_span)[span_138](end_span)",
-          "Copy/cut and paste facilities[span_139](start_span)[span_139](end_span)",
-          "Undo and redo keys[span_140](start_span)[span_140](end_span)",
-          "Search and replace[span_141](start_span)[span_141](end_span)",
-          "Creating Document with More Sub-Headings and Paragraphs[span_142](start_span)[span_142](end_span)",
-          "Editing Text Using Variety of Options such as: -[span_143](start_span)[span_143](end_span)",
-          "Text effects options - superscript, subscript, shadow, strikeout etc.[span_144](start_span)[span_144](end_span)",
-          "Text correction option[span_145](start_span)[span_145](end_span)",
-          "Wrapping options[span_146](start_span)[span_146](end_span)",
-          "Text orientation[span_147](start_span)[span_147](end_span)",
-          "Formatting and saving a Word document using the formatting tools:[span_148](start_span)[span_148](end_span)",
-          "Change font (style, size, colour, etc.)[span_149](start_span)[span_149](end_span)",
-          "Text alignment[span_150](start_span)[span_150](end_span)",
-          "Numbers and bulleting[span_151](start_span)[span_151](end_span)",
-          "Bold[span_152](start_span)[span_152](end_span)",
-          "Underline[span_153](start_span)[span_153](end_span)",
-          "Italics[span_154](start_span)[span_154](end_span)",
-          "Line spacing[span_155](start_span)[span_155](end_span)",
-          "Collaborative Editing e.g.[span_156](start_span)[span_156](end_span)",
-          "Using highlighting option to track changes in a document[span_157](start_span)[span_157](end_span)",
-          "Accepting or rejecting changes[span_158](start_span)[span_158](end_span)",
-          "Adding text comments:[span_159](start_span)[span_159](end_span)",
-          "Inserting Tables in Word Document.[span_160](start_span)[span_160](end_span)",
-          "Inserting Symbols and Pictures in Word Document.[span_161](start_span)[span_161](end_span)"
+          "Creating Document Using a Word Processor Saving Document Using the 'Save As' command",
+          "Editing Word Document Using Common Editing Tools:",
+          "Spell check functions",
+          "Copy/cut and paste facilities",
+          "Undo and redo keys",
+          "Search and replace",
+          "Creating Document with More Sub-Headings and Paragraphs",
+          "Editing Text Using Variety of Options such as: -",
+          "Text effects options - superscript, subscript, shadow, strikeout etc.",
+          "Text correction option",
+          "Wrapping options",
+          "Text orientation",
+          "Formatting and saving a Word document using the formatting tools:",
+          "Change font (style, size, colour, etc.)",
+          "Text alignment",
+          "Numbers and bulleting",
+          "Bold",
+          "Underline",
+          "Italics",
+          "Line spacing",
+          "Collaborative Editing e.g.",
+          "Using highlighting option to track changes in a document",
+          "Accepting or rejecting changes",
+          "Adding text comments:",
+          "Inserting Tables in Word Document.",
+          "Inserting Symbols and Pictures in Word Document."
         ]}
       ]
     },
@@ -605,28 +600,28 @@
       type: "Area-I",
       units: [
         { title: "বাঙালি জাতি, বাঙলা ভাষার উৎপত্তি ও বিবর্তন", items: [
-          "ক. বাঙালি জাতি ও বাঙলা দেশ[span_162](start_span)[span_162](end_span)",
-          "১. দেশ ও দেশের নাম[span_163](start_span)[span_163](end_span)",
-          "২. উৎস ও পটভূমি[span_164](start_span)[span_164](end_span)",
-          "খ. বাংলা ভাষার উৎপত্তি ও বিবর্তন[span_165](start_span)[span_165](end_span)",
-          "১. পৃথিবীর প্রধান ভাষাগোষ্ঠী সমূহ[span_166](start_span)[span_166](end_span)",
-          "২. ইন্দো-ইউরোপীয় মূলভাষা থেকে আধুনিক বাংলা পর্যন্ত ক্রমিক ধারা[span_167](start_span)[span_167](end_span)",
-          "৩. বাংলা ভাষার উৎপত্তি বিষয়ে বিভিন্ন মত[span_168](start_span)[span_168](end_span)",
-          "৪. প্রাচীন বাংলা থেকে আধুনিক বাংলা পর্যন্ত বিভিন্ন স্তর[span_169](start_span)[span_169](end_span)",
-          "গ. বাংলা লিপির ক্রমবিকাশ ও পাণ্ডুলিপি পাঠ[span_170](start_span)[span_170](end_span)"
+          "ক. বাঙালি জাতি ও বাঙলা দেশ",
+          "১. দেশ ও দেশের নাম",
+          "২. উৎস ও পটভূমি",
+          "খ. বাংলা ভাষার উৎপত্তি ও বিবর্তন",
+          "১. পৃথিবীর প্রধান ভাষাগোষ্ঠী সমূহ",
+          "২. ইন্দো-ইউরোপীয় মূলভাষা থেকে আধুনিক বাংলা পর্যন্ত ক্রমিক ধারা",
+          "৩. বাংলা ভাষার উৎপত্তি বিষয়ে বিভিন্ন মত",
+          "৪. প্রাচীন বাংলা থেকে আধুনিক বাংলা পর্যন্ত বিভিন্ন স্তর",
+          "গ. বাংলা লিপির ক্রমবিকাশ ও পাণ্ডুলিপি পাঠ"
         ]},
         { title: "ভাষা ও ভাষাতত্ত্ব", items: [
-          "ক. ভাষা ও ভাষাতত্ত্ব[span_171](start_span)[span_171](end_span)",
-          "১. ভাষা ও ভাষাতত্ত্ব, ভাষাতত্ত্বের পরিধি ও বিবর্তন[span_172](start_span)[span_172](end_span)",
-          "২. ভাষাতত্ত্ব চর্চার প্রয়োজনীয়তা[span_173](start_span)[span_173](end_span)",
-          "খ. ভাষাতত্ত্বের বিভিন্ন শাখা[span_174](start_span)[span_174](end_span)",
-          "১. ধ্বনিতত্ত্ব, রূপতত্ত্ব, বাক্যতত্ত্ব, অর্থতত্ত্ব - সংজ্ঞা, পরিধি, বৈশিষ্ট্য, শ্রেণিকরণ, শনাক্তকরণ[span_175](start_span)[span_175](end_span)",
-          "২. বাংলা ভাষায় প্রয়োগ[span_176](start_span)[span_176](end_span)",
-          "গ. ভাষাতত্ত্ব চর্চার ইতিহাস ও ভাষাতত্ত্বের বিভিন্ন পদ্ধতি[span_177](start_span)[span_177](end_span)",
-          "১. প্রথাগত ব্যাকরণ[span_178](start_span)[span_178](end_span)",
-          "২. তুলনামূলক ও ঐতিহাসিক পদ্ধতি[span_179](start_span)[span_179](end_span)",
-          "৩. সাংগঠনিক বা বর্ণনামূলক পদ্ধতি[span_180](start_span)[span_180](end_span)",
-          "৪. রূপান্তরমূলক - সৃষ্টিশীল পদ্ধতি[span_181](start_span)[span_181](end_span)"
+          "ক. ভাষা ও ভাষাতত্ত্ব",
+          "১. ভাষা ও ভাষাতত্ত্ব, ভাষাতত্ত্বের পরিধি ও বিবর্তন",
+          "২. ভাষাতত্ত্ব চর্চার প্রয়োজনীয়তা",
+          "খ. ভাষাতত্ত্বের বিভিন্ন শাখা",
+          "১. ধ্বনিতত্ত্ব, রূপতত্ত্ব, বাক্যতত্ত্ব, অর্থতত্ত্ব - সংজ্ঞা, পরিধি, বৈশিষ্ট্য, শ্রেণিকরণ, শনাক্তকরণ",
+          "২. বাংলা ভাষায় প্রয়োগ",
+          "গ. ভাষাতত্ত্ব চর্চার ইতিহাস ও ভাষাতত্ত্বের বিভিন্ন পদ্ধতি",
+          "১. প্রথাগত ব্যাকরণ",
+          "২. তুলনামূলক ও ঐতিহাসিক পদ্ধতি",
+          "৩. সাংগঠনিক বা বর্ণনামূলক পদ্ধতি",
+          "৪. রূপান্তরমূলক - সৃষ্টিশীল পদ্ধতি"
         ]}
       ]
     },
@@ -639,30 +634,30 @@
       type: "Area-I",
       units: [
         { title: "Unit 1 Developing four skills", items: [
-          "a) English for the Teacher: A Language Development Course by Mary Spratt. Published from Cambridge University Press, UK in 1994 (first published)[span_182](start_span)[span_182](end_span)"
+          "a) English for the Teacher: A Language Development Course by Mary Spratt. Published from Cambridge University Press, UK in 1994 (first published)"
         ]},
         { title: "Unit 2 Approaches and methods in language teaching", items: [
-          "a. Teaching English as L1, ESL, EFL[span_183](start_span)[span_183](end_span)",
-          "b. Different methods and approaches on English language teaching: Grammar - Translation method, Direct method, Structural approach, Audio-lingual method, Communicative approach[span_184](start_span)[span_184](end_span)",
-          "c. Interlanguage[span_185](start_span)[span_185](end_span)",
-          "d. Different purposes of learning English: ESP (English for Specific Purposes), EAP (English for Academic purposes), EGP (English for general purposes)[span_186](start_span)[span_186](end_span)"
+          "a. Teaching English as L1, ESL, EFL",
+          "b. Different methods and approaches on English language teaching: Grammar - Translation method, Direct method, Structural approach, Audio-lingual method, Communicative approach",
+          "c. Interlanguage",
+          "d. Different purposes of learning English: ESP (English for Specific Purposes), EAP (English for Academic purposes), EGP (English for general purposes)"
         ]},
         { title: "Unit 3 Curriculum, Textbook and ELT in Bangladesh", items: [
-          "a. The National Curriculum 1996[span_187](start_span)[span_187](end_span)",
-          "b. The National Curriculum 2022[span_188](start_span)[span_188](end_span)",
-          "c. English for Today (from 6-22)[span_189](start_span)[span_189](end_span)",
-          "d. Transition from GT to CLT in Bangladesh[span_190](start_span)[span_190](end_span)"
+          "a. The National Curriculum 1996",
+          "b. The National Curriculum 2022",
+          "c. English for Today (from 6-22)",
+          "d. Transition from GT to CLT in Bangladesh"
         ]},
         { title: "Unit 4 English Literature", items: [
-          "Poems[span_191](start_span)[span_191](end_span)",
-          "a Robert Frost: Stopping by woods on a snowy evening[span_192](start_span)[span_192](end_span)",
-          "b Shelly: Skylark[span_193](start_span)[span_193](end_span)",
-          "c Wordsworth: Lucy poems[span_194](start_span)[span_194](end_span)",
-          "d John Keats: Ode on a Grecian urn[span_195](start_span)[span_195](end_span)",
-          "Essay[span_196](start_span)[span_196](end_span)",
-          "Francis Bacon: Of Studies; Of Parents and Children[span_197](start_span)[span_197](end_span)",
-          "Short Story[span_198](start_span)[span_198](end_span)",
-          "R. K. Narayan: An Astrologer's Day[span_199](start_span)[span_199](end_span)"
+          "Poems",
+          "a Robert Frost: Stopping by woods on a snowy evening",
+          "b Shelly: Skylark",
+          "c Wordsworth: Lucy poems",
+          "d John Keats: Ode on a Grecian urn",
+          "Essay",
+          "Francis Bacon: Of Studies; Of Parents and Children",
+          "Short Story",
+          "R. K. Narayan: An Astrologer's Day"
         ]}
       ]
     },
@@ -674,39 +669,39 @@
       credits: "4",
       type: "Area-II",
       units: [
-        { title: "Unit One:", items: [
-          "Definition and scope of economics, importance of economics as a social science[span_200](start_span)[span_200](end_span)",
-          "Basic concepts in economics, importance of economics:[span_201](start_span)[span_201](end_span)",
-          "Demand, Supply, Capital, Costs, Land, Labour, Organization, Profits, Saving, fundamental quantitative relationships.[span_202](start_span)[span_202](end_span)"
+        { title: "Unit One", items: [
+          "Definition and scope of economics, importance of economics as a social science",
+          "Basic concepts in economics, importance of economics:",
+          "Demand, Supply, Capital, Costs, Land, Labour, Organization, Profits, Saving, fundamental quantitative relationships."
         ]},
-        { title: "Unit Two:", items: [
-          "Demand: determinants of demands[span_203](start_span)[span_203](end_span)",
-          "law of demand[span_204](start_span)[span_204](end_span)",
-          "elasticity of demand[span_205](start_span)[span_205](end_span)",
-          "factors determining elasticity of demand[span_206](start_span)[span_206](end_span)",
-          "measurement of elasticity[span_207](start_span)[span_207](end_span)",
-          "price elasticity, income elasticity and cross elasticity.[span_208](start_span)[span_208](end_span)"
+        { title: "Unit Two", items: [
+          "Demand: determinants of demands",
+          "law of demand",
+          "elasticity of demand",
+          "factors determining elasticity of demand",
+          "measurement of elasticity",
+          "price elasticity, income elasticity and cross elasticity."
         ]},
-        { title: "Unit Three:", items: [
-          "Supply: determinants of supply[span_209](start_span)[span_209](end_span)",
-          "law of supply[span_210](start_span)[span_210](end_span)",
-          "elasticity of supply[span_211](start_span)[span_211](end_span)",
-          "Factor determining elasticity of supply.[span_212](start_span)[span_212](end_span)"
+        { title: "Unit Three", items: [
+          "Supply: determinants of supply",
+          "law of supply",
+          "elasticity of supply",
+          "Factor determining elasticity of supply."
         ]},
-        { title: "Unit Four:", items: [
-          "Factors of production - land, labour, capital and organization.[span_213](start_span)[span_213](end_span)",
-          "Cost of production money cost and opportunity cost[span_214](start_span)[span_214](end_span)",
-          "fixed cost and variable cost[span_215](start_span)[span_215](end_span)",
-          "total, average and marginal costs[span_216](start_span)[span_216](end_span)",
-          "short run and long run cost curves of a firm.[span_217](start_span)[span_217](end_span)"
+        { title: "Unit Four", items: [
+          "Factors of production - land, labour, capital and organization.",
+          "Cost of production money cost and opportunity cost",
+          "fixed cost and variable cost",
+          "total, average and marginal costs",
+          "short run and long run cost curves of a firm."
         ]},
-        { title: "Unit Five:", items: [
-          "Market - Classification of markets[span_218](start_span)[span_218](end_span)",
-          "perfect competition, monopoly, monopolistic competition, oligopoly - their distinguishing characteristics.[span_219](start_span)[span_219](end_span)"
+        { title: "Unit Five", items: [
+          "Market - Classification of markets",
+          "perfect competition, monopoly, monopolistic competition, oligopoly - their distinguishing characteristics."
         ]},
-        { title: "Unit Six:", items: [
-          "National Income Accounting - methods of computing,[span_220](start_span)[span_220](end_span)",
-          "GNP, GDP, NNP, disposable income, savings, investments, employment and unemployment.[span_221](start_span)[span_221](end_span)"
+        { title: "Unit Six", items: [
+          "National Income Accounting - methods of computing,",
+          "GNP, GDP, NNP, disposable income, savings, investments, employment and unemployment."
         ]}
       ]
     },
@@ -719,29 +714,29 @@
       type: "Area-II",
       units: [
         { title: "Unit One: Education in the Ancient Period", items: [
-          "Definitions and concepts of Political Science[span_222](start_span)[span_222](end_span)",
-          "Nature, scope and method of political science[span_223](start_span)[span_223](end_span)",
-          "Importance of studying political science[span_224](start_span)[span_224](end_span)",
-          "Its relationship to other disciplines of social science[span_225](start_span)[span_225](end_span)"
+          "Definitions and concepts of Political Science",
+          "Nature, scope and method of political science",
+          "Importance of studying political science",
+          "Its relationship to other disciplines of social science"
         ]},
         { title: "Unit Two: Nation", items: [
-          "Concept of Nation[span_226](start_span)[span_226](end_span)",
-          "Nation and Nationalism[span_227](start_span)[span_227](end_span)",
-          "Elements of Nationalism[span_228](start_span)[span_228](end_span)",
-          "Internationalism[span_229](start_span)[span_229](end_span)"
+          "Concept of Nation",
+          "Nation and Nationalism",
+          "Elements of Nationalism",
+          "Internationalism"
         ]},
         { title: "Unit Three: State", items: [
-          "Theories of the origin of the state[span_230](start_span)[span_230](end_span)",
-          "State of society[span_231](start_span)[span_231](end_span)",
-          "State of the Individual[span_232](start_span)[span_232](end_span)",
-          "Functions of the state. Concepts of the Welfare State[span_233](start_span)[span_233](end_span)",
-          "Liberalism. Utilitarianism and Totalitarianism[span_234](start_span)[span_234](end_span)",
-          "Socialism and Economy[span_235](start_span)[span_235](end_span)",
-          "Free Market Economy[span_236](start_span)[span_236](end_span)"
+          "Theories of the origin of the state",
+          "State of society",
+          "State of the Individual",
+          "Functions of the state. Concepts of the Welfare State",
+          "Liberalism. Utilitarianism and Totalitarianism",
+          "Socialism and Economy",
+          "Free Market Economy"
         ]},
         { title: "Unit Four: Sovereignty", items: [
-          "Its nature and characteristics[span_237](start_span)[span_237](end_span)",
-          "Mouistic and Pluralistic theories[span_238](start_span)[span_238](end_span)"
+          "Its nature and characteristics",
+          "Mouistic and Pluralistic theories"
         ]}
       ]
     },
@@ -754,48 +749,48 @@
       type: "Area-III",
       units: [
         { title: "Unit One: Introduction", items: [
-          "What is Science - Process and Product. Ideas about science. Scientific Attitude, Physics and its concept. Scope of Physics. Why should we study Physics, Physics and Technology.[span_239](start_span)[span_239](end_span)"
+          "What is Science - Process and Product. Ideas about science. Scientific Attitude, Physics and its concept. Scope of Physics. Why should we study Physics, Physics and Technology."
         ]},
         { title: "Unit Two: Vector Analysis", items: [
-          "Vectors and scalars, Vector Algebra, Resolution and Addition of Vectors, Unit Vectors, Multiplication of Vectors. The Dot and Cross Product, Vector differentiation. Gradient, Divergence and Curl, Vector integral, Theorem of Gauss, Stokes and Green.[span_240](start_span)[span_240](end_span)"
+          "Vectors and scalars, Vector Algebra, Resolution and Addition of Vectors, Unit Vectors, Multiplication of Vectors. The Dot and Cross Product, Vector differentiation. Gradient, Divergence and Curl, Vector integral, Theorem of Gauss, Stokes and Green."
         ]},
         { title: "Unit Three: Work Energy and Power", items: [
-          "Kinetic Energy. Work, Work and kinetic energy, Work done by Weight, Work done by a varying force, Work Energy theorem with a Variable Force, Potential Energy, Determining Potential Energy Conservative and non-conservative forces. Work done by non-conservative Forces, Conservation of energy. Power.[span_241](start_span)[span_241](end_span)"
+          "Kinetic Energy. Work, Work and kinetic energy, Work done by Weight, Work done by a varying force, Work Energy theorem with a Variable Force, Potential Energy, Determining Potential Energy Conservative and non-conservative forces. Work done by non-conservative Forces, Conservation of energy. Power."
         ]},
         { title: "Unit Four: Systems of Particles", items: [
-          "Center of Mass - Systems of Particles. Rigid Body, Newton's Second Law For a System of Particles, Linear momentum, Conservation of linear momentum, Systems With Varying Mass: A Rocket. Impulse. Collisions - Elastic and In-elastic.[span_242](start_span)[span_242](end_span)"
+          "Center of Mass - Systems of Particles. Rigid Body, Newton's Second Law For a System of Particles, Linear momentum, Conservation of linear momentum, Systems With Varying Mass: A Rocket. Impulse. Collisions - Elastic and In-elastic."
         ]},
         { title: "Unit Five: Rotational Motion", items: [
-          "The Rotational Variables, Torque, Work and Rotational Kinetic Energy, Angular Momentum, Newton's Second Law in Angular Momentum, Rotation of a rigid body about a fixed axis, Conservation of Angular Momentum.[span_243](start_span)[span_243](end_span)"
+          "The Rotational Variables, Torque, Work and Rotational Kinetic Energy, Angular Momentum, Newton's Second Law in Angular Momentum, Rotation of a rigid body about a fixed axis, Conservation of Angular Momentum."
         ]},
         { title: "Unit Six: Gravitation", items: [
-          "Historical Introduction, Newton's Law of Gravity, The Universal Gravitational, Inertial and Gravitational Mass. Variations in Acceleration due to Gravity, Effect of a spherical distribution of mass. The motions of planets and satellites. Gravitational field, Gravitational potential energy, Energy considerations in the motions of Planets and Satellites.[span_244](start_span)[span_244](end_span)"
+          "Historical Introduction, Newton's Law of Gravity, The Universal Gravitational, Inertial and Gravitational Mass. Variations in Acceleration due to Gravity, Effect of a spherical distribution of mass. The motions of planets and satellites. Gravitational field, Gravitational potential energy, Energy considerations in the motions of Planets and Satellites."
         ]},
         { title: "Unit Seven: Elasticity", items: [
-          "Elasticity, Stress and Strain. Hooke's Law. Poisson's Ratio, Work done in deforming a body. Twisting Couple on a cylinder (or wire). Bending of beams, Bending Moment, Cantilever Depression of beam.[span_245](start_span)[span_245](end_span)"
+          "Elasticity, Stress and Strain. Hooke's Law. Poisson's Ratio, Work done in deforming a body. Twisting Couple on a cylinder (or wire). Bending of beams, Bending Moment, Cantilever Depression of beam."
         ]},
         { title: "Unit Eight: Surface Tension", items: [
-          "Molecular Forces, Explanation of Surface Tension. Surface film and Surface Energy, Free Energy of Surface and Surface Tension. Pressure Difference Across a Liquid Surface. Excess Pressure. Curvature Pressure and Surface Tension, Shape of Liquid, Meniscus in a Capillary Tube. Angle of Contact. Rise of Liquid in a Capillary Tube, Surface Tension of Mercury.[span_246](start_span)[span_246](end_span)"
+          "Molecular Forces, Explanation of Surface Tension. Surface film and Surface Energy, Free Energy of Surface and Surface Tension. Pressure Difference Across a Liquid Surface. Excess Pressure. Curvature Pressure and Surface Tension, Shape of Liquid, Meniscus in a Capillary Tube. Angle of Contact. Rise of Liquid in a Capillary Tube, Surface Tension of Mercury."
         ]},
         { title: "Unit Nine: Fluid Dynamics and Viscosity", items: [
-          "Streamline flow, the Equation of Continuity, Energy of the Liquid, Bernoulli's Equation Applications, Torricelll's Theorem, Viscosity. Motion in a Viscous Medium. Terminal Velocity, Poiseuille's Formula.[span_247](start_span)[span_247](end_span)"
+          "Streamline flow, the Equation of Continuity, Energy of the Liquid, Bernoulli's Equation Applications, Torricelll's Theorem, Viscosity. Motion in a Viscous Medium. Terminal Velocity, Poiseuille's Formula."
         ]},
         { title: "Unit Ten: Oscillatory Motion", items: [
-          "Simple Harmonic Motion (SHM) and its differential equation, Combination of SHM, Energy consideration in SHM, Lissaju's Fingers: Two body Oscillators, Damped SHM, Forecd Oscillation. Resonance.[span_248](start_span)[span_248](end_span)"
+          "Simple Harmonic Motion (SHM) and its differential equation, Combination of SHM, Energy consideration in SHM, Lissaju's Fingers: Two body Oscillators, Damped SHM, Forecd Oscillation. Resonance."
         ]},
         { title: "Unit Eleven: Waves", items: [
-          "Wave - an introduction. Differential equation of waves. Types of waves. Superposition and interference of waves. Wave speed, Energy and Power of wave motion, Standing waves and Resonance, Beat, Doppler effect in Sound.[span_249](start_span)[span_249](end_span)"
+          "Wave - an introduction. Differential equation of waves. Types of waves. Superposition and interference of waves. Wave speed, Energy and Power of wave motion, Standing waves and Resonance, Beat, Doppler effect in Sound."
         ]},
         { title: "Laboratory Work: Practical (At Least Six)", items: [
-          "1. Determination of Young's Modulus and Rigidity Modulus of a short wire by Searle's dynamic method.[span_250](start_span)[span_250](end_span)",
-          "2. Detennination of the Rigidity Modulus by Static method.[span_251](start_span)[span_251](end_span)",
-          "3. Determination of acceleration due to gravity g1 by a compound pendulum.[span_252](start_span)[span_252](end_span)",
-          "4. Determination of acceleration due to gravity 'g' by a Kater's pendulum.[span_253](start_span)[span_253](end_span)",
-          "5. Determination of the spring constant and effective mass of a given spiral spring and hence to calculate the rigidity modules of the material of the spring.[span_254](start_span)[span_254](end_span)",
-          "6. Determination of the Moment of Inertia of a fly-wheel about its axis of rotation.[span_255](start_span)[span_255](end_span)",
-          "7. Determination of the Surface Tension of water by capillary tube method[span_256](start_span)[span_256](end_span)",
-          "8. Determination of the Surface Tension of Mercury and Angle of contract by Quinker's method.[span_257](start_span)[span_257](end_span)",
-          "9. Verify the laws of tranverse vibration of strings and to determine the frequency of a tuning fork by Melde's experiment.[span_258](start_span)[span_258](end_span)"
+          "1. Determination of Young's Modulus and Rigidity Modulus of a short wire by Searle's dynamic method.",
+          "2. Detennination of the Rigidity Modulus by Static method.",
+          "3. Determination of acceleration due to gravity g by a compound pendulum.",
+          "4. Determination of acceleration due to gravity 'g' by a Kater's pendulum.",
+          "5. Determination of the spring constant and effective mass of a given spiral spring and hence to calculate the rigidity modules of the material of the spring.",
+          "6. Determination of the Moment of Inertia of a fly-wheel about its axis of rotation.",
+          "7. Determination of the Surface Tension of water by capillary tube method",
+          "8. Determination of the Surface Tension of Mercury and Angle of contract by Quinker's method.",
+          "9. Verify the laws of tranverse vibration of strings and to determine the frequency of a tuning fork by Melde's experiment."
         ]}
       ]
     },
@@ -808,47 +803,47 @@
       type: "Area-III",
       units: [
         { title: "Unit One: Set and Set Operation", items: [
-          "Sets, Representation of Set, Set of numbers, Finite and infinite set, Null set, Equivalent sets, Subset of a set, Equality of two sets, Comparability of two sets, Disjoint set, Family of sets, Power set, Universal set.[span_259](start_span)[span_259](end_span)",
-          "Union of sets, Intersection of sets, Difference of sets, Complement of a set, Properties of set operation.[span_260](start_span)[span_260](end_span)"
+          "Sets, Representation of Set, Set of numbers, Finite and infinite set, Null set, Equivalent sets, Subset of a set, Equality of two sets, Comparability of two sets, Disjoint set, Family of sets, Power set, Universal set.",
+          "Union of sets, Intersection of sets, Difference of sets, Complement of a set, Properties of set operation."
         ]},
         { title: "Unit Two: Function and Relation", items: [
-          "Order pair and Cartesian Product, Relation (or Binary Relation) and equivalence Relation.[span_261](start_span)[span_261](end_span)",
-          "Function (or mapping) and Inverse function, Different types of functions, Inverse function. Composite or product functions. Images and Inverse images of sets under a mapping.[span_262](start_span)[span_262](end_span)"
+          "Order pair and Cartesian Product, Relation (or Binary Relation) and equivalence Relation.",
+          "Function (or mapping) and Inverse function, Different types of functions, Inverse function. Composite or product functions. Images and Inverse images of sets under a mapping."
         ]},
         { title: "Unit Three: Inequalities", items: [
-          "Introduction, Properties of inequalities.[span_263](start_span)[span_263](end_span)",
-          "Arithmetic, Geometric and Harmonic means.[span_264](start_span)[span_264](end_span)",
-          "Mean of the mth power of 'a' and 'b' where a and b are unequal positive quantities.[span_265](start_span)[span_265](end_span)",
-          "Mean of the mth power of n positive and unequal quantities.[span_266](start_span)[span_266](end_span)",
-          "Weierstrass's Canchy's and Tehebychef's Inequallity.[span_267](start_span)[span_267](end_span)"
+          "Introduction, Properties of inequalities.",
+          "Arithmetic, Geometric and Harmonic means.",
+          "Mean of the mth power of 'a' and 'b' where a and b are unequal positive quantities.",
+          "Mean of the mth power of n positive and unequal quantities.",
+          "Weierstrass's Canchy's and Tehebychef's Inequallity."
         ]},
         { title: "Unit Four: Complex Numbers", items: [
-          "Field properties of real and complex numbers.[span_268](start_span)[span_268](end_span)",
-          "Complex Number System and its Graphical representation.[span_269](start_span)[span_269](end_span)",
-          "Polar from of a complex numbers.[span_270](start_span)[span_270](end_span)",
-          "Cube roots of unity.[span_271](start_span)[span_271](end_span)",
-          "Multiplication and quotient of two complex numbers in polar form[span_272](start_span)[span_272](end_span)"
+          "Field properties of real and complex numbers.",
+          "Complex Number System and its Graphical representation.",
+          "Polar from of a complex numbers.",
+          "Cube roots of unity.",
+          "Multiplication and quotient of two complex numbers in polar form"
         ]},
         { title: "Unit Five: Trigonometry", items: [
-          "De Moiver's theorem and it application, exponential, logarithmic, trigonometric and hyperbolic functions and their expansion.[span_273](start_span)[span_273](end_span)"
+          "De Moiver's theorem and it application, exponential, logarithmic, trigonometric and hyperbolic functions and their expansion."
         ]},
         { title: "Unit Six: Summation of Trigonometric Series", items: [
-          "Summation of trigonometric series, summation by the method of difference, sum of sin and cosine of angles in A.P, summation by C+iS method, sum of hyperbolic cosines and hyperbolic sines of n angles in A.P.[span_274](start_span)[span_274](end_span)"
+          "Summation of trigonometric series, summation by the method of difference, sum of sin and cosine of angles in A.P, summation by C+iS method, sum of hyperbolic cosines and hyperbolic sines of n angles in A.P."
         ]},
         { title: "Unit Seven: Summation of Algebraic Series", items: [
-          "Summation of Algebraic Series, summation by the method of difference, Summation of series in which Un is a product of r successive factors in A.P., summation of series in which Un is the reciprocal of the product of r factors in A.P., (Process,) summation by the method of difference sum of an important type of series, sum of series Sr.=1r+2+...+nr where r is a positive integer. Recurring series and its scale of relations, sum of n terms of a recurring series, Generating function of the recurring series.[span_275](start_span)[span_275](end_span)"
+          "Summation of Algebraic Series, summation by the method of difference, Summation of series in which Un is a product of r successive factors in A.P., summation of series in which Un is the reciprocal of the product of r factors in A.P., (Process,) summation by the method of difference sum of an important type of series, sum of series Sr.=1r+2+...+nr where r is a positive integer. Recurring series and its scale of relations, sum of n terms of a recurring series, Generating function of the recurring series."
         ]},
         { title: "Unit Eight: Theory of equation", items: [
-          "Relation between roots and coefficients, symmetric function of roots, Descrates rule of signs, rational roots, solution & formation of equation, Multiple roots of the equation.[span_276](start_span)[span_276](end_span)"
+          "Relation between roots and coefficients, symmetric function of roots, Descrates rule of signs, rational roots, solution & formation of equation, Multiple roots of the equation."
         ]},
         { title: "Unit Nine: Determination", items: [
-          "Definition of determinant, Sarrus diagram for determinant order 3, Minors and cofactors, fundamental properties of determinants, expansion of Determinant (Laplace's expansion), Application of determinants in solving the linear equations (Cramer's rule). Multiplication of determinants, Multiplication of two determinants of same fmite order; Multiplication of two determinants of two different order. Adjoint determinant, Multiplication theorem (without Proof), Inverse or reciprocal determinant, symmetric and skew symmetric determinant.[span_277](start_span)[span_277](end_span)"
+          "Definition of determinant, Sarrus diagram for determinant order 3, Minors and cofactors, fundamental properties of determinants, expansion of Determinant (Laplace's expansion), Application of determinants in solving the linear equations (Cramer's rule). Multiplication of determinants, Multiplication of two determinants of same fmite order; Multiplication of two determinants of two different order. Adjoint determinant, Multiplication theorem (without Proof), Inverse or reciprocal determinant, symmetric and skew symmetric determinant."
         ]},
         { title: "Unit Ten: Matrix", items: [
-          "Definition of Matrix, special types of Matrix, Addition and Scalar multiplication of matrix, Matrix multiplication Adjoint and Inverse Matrices, Solution of liner equation by applying matrices.[span_278](start_span)[span_278](end_span)"
+          "Definition of Matrix, special types of Matrix, Addition and Scalar multiplication of matrix, Matrix multiplication Adjoint and Inverse Matrices, Solution of liner equation by applying matrices."
         ]},
         { title: "Unit Eleven: Vector Analysis", items: [
-          "Vectors and scalars, Scalar and vector products, Resolution and Addition of vectors, Unit vectors, Multiplication of vectors. The Dot and Cross Product.[span_279](start_span)[span_279](end_span)"
+          "Vectors and scalars, Scalar and vector products, Resolution and Addition of vectors, Unit vectors, Multiplication of vectors. The Dot and Cross Product."
         ]}
       ]
     }
@@ -964,6 +959,8 @@
 
   renderMainList();
 </script>
+
+
 
 
 </body>

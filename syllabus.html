@@ -37,7 +37,7 @@
     padding: 24px 20px;
     border-radius: 20px;
     background: var(--bg-color);
-    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
     margin-bottom: 24px;
     text-align: center;
   }
@@ -233,7 +233,6 @@
     height: 22px;
     border-radius: 6px;
     background: var(--bg-color);
-    /* Softened outer shadow for small element */
     box-shadow: 2px 2px 4px var(--shadow-dark), -2px -2px 4px var(--shadow-light);
     cursor: pointer;
     display: flex;
@@ -244,7 +243,6 @@
     transition: all 0.2s ease;
   }
   .neumorphic-checkbox:checked {
-    /* Smoothed inner shadow */
     box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
   }
   .neumorphic-checkbox:checked::after {
@@ -354,6 +352,7 @@
       <!-- Injected via JS -->
     </div>
   </div>
+
 <script>
   document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', (e) => {
@@ -368,7 +367,7 @@
     });
   });
 
- const syllabusData = [
+  const syllabusData = [
     {
       id: "220301",
       title: "ICT in Education",
@@ -386,7 +385,13 @@
         { 
           title: "Unit Two: Importance of ICT in Education", 
           topics: [
-            { subtitle: "", items: ["Learning", "Teaching", "Education e-Services (e.g. SMS/online result, admission, Edu Boards’ services etc.)", "Administration/Automation", "Research and Development (RnD)"] }
+            { subtitle: "", items: [
+              "Learning", 
+              "Teaching", 
+              "Education e-Services (e.g. SMS/online result, admission, Edu Boards' services, etc.)", 
+              "Administration/Automation", 
+              "Research and Development (RnD)"
+            ]}
           ]
         },
         { 
@@ -412,8 +417,8 @@
         },
         { 
           title: "Unit Five", 
-          subtitle: "Comparative analysis of ICT in Education: Bangladesh and other developing countries",
           topics: [
+            { subtitle: "Comparative analysis of ICT in Education: Bangladesh and other developing countries", items: [] },
             { subtitle: "Opportunities:", items: [
               "E-Learning/online learning (BoU, DU, TTCs, etc.)",
               "E-Conferencing",
@@ -433,13 +438,15 @@
         { 
           title: "Unit Six: Education Tools", 
           topics: [
-            { subtitle: "Education Tools:","Application of MS-Word, PowerPoint, Excel, Access for educational uses:", items: [
-              " MS Word: Prepare question paper, Class routine, Bio-Data/Resume, Meeting Resolution, assignment, Article",
-              " MS Excel: Prepare tabulation sheet of Total Average, Max and Min number, Sort, GPA and grade using formula, graph and chart, school budget",
-              " MS Power point: Prepare subject base Digital Content using Image, animation, video, smart art"
+            { subtitle: "Application of MS-Word, PowerPoint, Excel, Access for educational uses:", items: [
+              "MS Word: Prepare question paper, Class routine, Bio-Data/Resume, Meeting Resolution, assignment, Article",
+              "MS Excel: Prepare tabulation sheet of Total Average, Max and Min number, Sort, GPA and grade using formula, graph and chart, school budget",
+              "MS Power point: Prepare subject base Digital Content using Image, animation, video, smart art"
             ]},
-            { subtitle: "Other Tools & Platforms:", items: [ "E-book", "Educational Blog/portal",
-             "Google Drive",
+            { subtitle: "Other Tools & Platforms:", items: [
+              "E-book", 
+              "Educational Blog/portal",
+              "Google Drive",
               "Moodle",
               "Social Networking (e.g. Facebook, Twitter, etc.)",
               "YouTube",
@@ -1194,6 +1201,7 @@
       ]
     }
   ];
+
   const svgBook = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`;
   const svgMarks = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>`;
   const svgCredits = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
@@ -1222,7 +1230,7 @@
     });
   }
 
-function renderSyllabus(courseId) {
+  function renderSyllabus(courseId) {
     const course = syllabusData.find(c => c.id === courseId);
     if (!course) return;
     currentCourseId = courseId;
@@ -1245,14 +1253,11 @@ function renderSyllabus(courseId) {
       let contentHtml = '';
       
       unit.topics.forEach((topic, topicIndex) => {
-        // Add the subtext if it exists
         if (topic.subtitle) {
           contentHtml += `<div class="topic-subtitle">${topic.subtitle}</div>`;
         }
         
-        // Add the checkable items
         topic.items.forEach((item, itemIndex) => {
-          // Unique storage key including the new topicIndex
           const storageKey = `edumat_${courseId}_${unitIndex}_${topicIndex}_${itemIndex}`;
           const isChecked = localStorage.getItem(storageKey) === 'true' ? 'checked' : '';
           
@@ -1316,9 +1321,5 @@ function renderSyllabus(courseId) {
 
   renderMainList();
 </script>
-
-
-
-
 </body>
 </html>

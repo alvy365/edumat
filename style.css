@@ -137,47 +137,61 @@ body {
   padding: 4px;
 }
 
+/* Glass Pill Tabs */
 .tab {
-  padding: 12px 20px;
-  border-radius: 20px;
-  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--text-muted);
+  color: #5c6c80;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
   
-  /* Glassmorphism */
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 4px 4px 12px rgba(200, 213, 224, 0.4);
+  /* Glassmorphism Effect */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    inset 0px 2px 2px rgba(255, 255, 255, 0.9), 
+    0px 4px 10px rgba(163, 177, 198, 0.2);
 }
 
+/* Active Glass Pill */
 .tab.active {
-  background: rgba(26, 32, 44, 0.85); /* Semi-transparent dark accent */
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 12px rgba(26, 32, 44, 0.2);
+  background: linear-gradient(135deg, #e6f0ff 0%, #cce0ff 100%);
+  color: #0055cc;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    inset 0px 2px 3px rgba(255, 255, 255, 0.9), 
+    0px 6px 12px rgba(0, 85, 204, 0.15);
 }
 
-.item-count {
+/* Glass Pill Metadata (Item counts & Course tags) */
+.item-count, 
+.course-meta span {
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-muted);
-  padding: 6px 12px;
-  border-radius: 12px;
+  color: #5c6c80;
+  padding: 6px 14px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   
-  /* Glassmorphism */
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 2px 2px 8px rgba(200, 213, 224, 0.4);
+  /* Matching Glassmorphism */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    inset 0px 2px 2px rgba(255, 255, 255, 0.9), 
+    0px 4px 10px rgba(163, 177, 198, 0.2);
 }
+
 
 
 /* Section Header */

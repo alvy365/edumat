@@ -112,11 +112,17 @@ document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', (e) => {
     const category = e.target.dataset.category;
     
+    // Auto-redirect logic for specific pages
     if (category === 'routine') {
       window.location.href = 'Class routine.html';
       return;
     }
+    if (category === 'syllabus') {
+      window.location.href = 'syllabus.html';
+      return;
+    }
 
+    // Standard behavior for all other tabs
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     e.target.classList.add('active');
     renderList(category);

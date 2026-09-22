@@ -14,7 +14,21 @@ const categoryData = {
   ab: { title: "Answer Banks", subtitle: "Solved past papers and exercises", items: [] },
   suggestions: { title: "Suggestions", subtitle: "Exam focus topics and shortlists", items: [] },
   notices: { title: "Notices", subtitle: "Important announcements and dates", items: [] },
-  syllabus: { title: "Syllabus", subtitle: "Course outlines and modules", items: [] },
+    syllabus: { 
+    title: "Syllabus", 
+    subtitle: "Course outlines and modules", 
+    items: [
+      {
+        title: "3rd Semester Complete Syllabus",
+        year: "2023-2024",
+        desc: "Interactive syllabus hub for all compulsory and area-wise courses.",
+        color: "color-purple",
+        isLocal: true,
+        localUrl: "syllabus.html"
+      }
+    ] 
+  },
+
   routine: { title: "Routine", subtitle: "Class schedules and timings", items: [] },
   notes: { 
     title: "Notes", 

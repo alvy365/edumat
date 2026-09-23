@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary Meta Tags -->
+<title>Notes - Edumat</title>
+<meta name="title" content="Notes | Edumat 3rd Semester">
+<meta name="description" content="Access clean, distraction-free handwritten and typed notes for B.Ed. Honours 3rd Semester.">
+
+<!-- Open Graph / WhatsApp / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://edumat.alvylabs.com/notes.html">
+<meta property="og:title" content="Notes | Edumat 3rd Semester">
+<meta property="og:description" content="Access clean, distraction-free handwritten and typed notes for B.Ed. Honours 3rd Semester.">
+<meta property="og:image" content="https://edumat.alvylabs.com/og-preview.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://edumat.alvylabs.com/notes.html">
+<meta name="twitter:title" content="Notes | Edumat 3rd Semester">
+<meta name="twitter:description" content="Access clean, distraction-free handwritten and typed notes for B.Ed. Honours 3rd Semester.">
+<meta name="twitter:image" content="https://edumat.alvylabs.com/og-preview.png">
+
+
+<title>Notes - Edumat</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Local Overrides for Notes Layout */
+  .section-header {
+    margin-bottom: 24px;
+  }
+  .section-header h2 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--accent-dark);
+    margin-bottom: 4px;
+  }
+  .section-header p {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  /* Note Card Grid */
+  .notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 40px;
+  }
+  .note-link {
+    text-decoration: none;
+    display: block;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .course-card {
+    padding: 20px;
+    border-radius: 20px;
+    background: var(--bg-color);
+    box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .course-card:active {
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  }
+  .course-type {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #0055cc;
+    margin-bottom: 4px;
+  }
+  .course-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .course-meta span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #5c6c80;
+    padding: 6px 14px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0px 2px 2px rgba(255, 255, 255, 0.9), 0px 4px 10px rgba(163, 177, 198, 0.2);
+  }
+</style>
+</head>
+<body>
+
+  <!-- Global Edumat Shell -->
+  <div id="edumat-shell">
+    <div class="header">
+      <div class="header-left">
+        <div class="logo-box">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 7h6M8 11h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="header-text">
+          <h1>Edumat</h1>
+          <p>3rd Semester Study Materials</p>
+        </div>
+      </div>
+      <button class="menu-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <!-- Tabs Container -->
+    <div class="tabs-container" id="tabs">
+      <button class="tab" data-category="qb">Question Banks</button>
+      <button class="tab" data-category="ab">Answer Banks</button>
+      <button class="tab" data-category="suggestions">Suggestions</button>
+      <button class="tab" data-category="notices">Notices</button>
+      <button class="tab" data-category="syllabus">Syllabus</button>
+      <button class="tab" data-category="routine">Routine</button>
+      <button class="tab active" data-category="notes">Notes</button>
+      <button class="tab" data-category="books">Books</button>
+      <button class="tab" data-category="sheets">Sheets</button>
+      <button class="tab" data-category="links">Links</button>
+    </div>
+  </div>
+
+  <!-- Main View -->
+  <div id="main-view">
+    <div class="section-header">
+      <h2>Handwritten & Typed Notes</h2>
+      <p>Clean, distraction-free reading materials.</p>
+    </div>
+
+    <div class="notes-list">
+      
+      <!-- Note Item 1 -->
+      <a href="critical-appreciation-bacon.html" class="note-link">
+        <div class="course-card">
+          <div class="course-type">English Paper-I</div>
+          <div class="course-title">Francis Bacon: Of Studies & Of Parents and Children (Critical Appreciation)</div>
+          <div class="course-meta">
+            <span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+              Read Note
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- You can copy the <a> block above and paste it here to add more notes in the future -->
+
+    </div>
+  </div>
+
+<script>
+  // Tab Routing Logic
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      const category = e.target.dataset.category;
+      
+      // Prevent reloading if already on Notes tab
+      if (category === 'notes') return; 
+      
+      // Hard routing for specific standalone pages
+      if (category === 'syllabus') {
+        window.location.href = 'syllabus.html';
+        return;
+      }
+      if (category === 'routine') {
+        window.location.href = 'Class routine.html';
+        return;
+      }
+
+      // Route back to main index for all other dynamic tabs
+      window.location.href = 'index.html';
+    });
+  });
+</script>
+</body>
+</html>

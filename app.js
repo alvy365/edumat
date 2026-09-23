@@ -122,6 +122,12 @@ document.querySelectorAll('.tab').forEach(tab => {
       return;
     }
 
+if (category === 'notes') {
+  window.location.href = 'notes.html';
+  return;
+}
+
+
     // Standard behavior for all other tabs
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     e.target.classList.add('active');

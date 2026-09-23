@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francis Bacon Notes - Edumat</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Header Navigation */
+  .nav-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-top: 12px;
+  }
+  .back-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--bg-color);
+    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+  }
+  .back-btn:active {
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+  }
+  .page-header-text h1 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent-dark);
+    margin-bottom: 4px;
+  }
+  .page-header-text p {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  /* Content Wrapper */
+  .note-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 40px;
+  }
+
+  /* Neumorphic Reading Cards */
+  .note-card {
+    padding: 24px;
+    border-radius: 20px;
+    background: var(--bg-color);
+    box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  }
+
+  /* Glassmorphic Section Headings */
+  .glass-heading {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0055cc;
+    margin-bottom: 16px;
+    
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 
+      inset 0px 2px 2px rgba(255, 255, 255, 0.9), 
+      0px 4px 10px rgba(163, 177, 198, 0.2);
+  }
+
+  /* Typography */
+  .note-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-main);
+    margin-bottom: 16px;
+    text-align: justify;
+  }
+  .note-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Inset Quote Highlight */
+  .quote-block {
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--accent-dark);
+    background: var(--bg-color);
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+    border-left: 4px solid #0055cc;
+  }
+</style>
+</head>
+<body>
+
+  <div id="edumat-shell">
+    
+    <!-- Header Navigation -->
+    <div class="nav-header">
+      <a href="index.html" class="back-btn">←</a>
+      <div class="page-header-text">
+        <h1>Francis Bacon</h1>
+        <p>Critical Appreciation • English Paper-I</p>
+      </div>
+    </div>
+
+    <!-- Main Content Notes -->
+    <div class="note-wrapper">
+      
+      <!-- Section 1 -->
+      <div class="note-card">
+        <div class="glass-heading">Utilitarian Pedagogy in "Of Studies"</div>
+        <p class="note-text">Bacon approaches learning not as an abstract virtue, but as a practical tool for worldly success. He categorizes the purposes of education into three distinct functions: delight in privateness, ornament in discourse, and ability in judgment. He is highly critical of academic extremes, warning that spending too much time in studies is mere sloth.</p>
+        
+        <div class="quote-block">"Some books are to be tasted, others to be swallowed, and some few to be chewed and digested"</div>
+        
+        <p class="note-text">This aphorism provides a timeless framework for reading strategies. Furthermore, Bacon emphasizes that theoretical knowledge is incomplete without practical application. His assertion that "reading maketh a full man, conference a ready man, and writing an exact man" outlines a comprehensive developmental model that modern educators still strive to implement in classrooms.</p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="note-card">
+        <div class="glass-heading">Pragmatic Psychology in "Of Parents and Children"</div>
+        <p class="note-text">In this essay, Bacon addresses family life with striking detachment. Rather than romanticizing parenthood, he observes it as a strict socio-economic institution. He argues that while children sweeten labor, they also make misfortunes more bitter.</p>
+        <p class="note-text">Bacon critiques common parental flaws, such as unequal affection and overly tight allowances, noting that these practices encourage deceptive behavior and poor financial management in youth. Most relevant to career guidance, he advises parents to choose their children's vocation early rather than relying on a child's fluid inclination. This reflects a highly practical understanding of discipline, habit formation, and developmental psychology.</p>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="note-card">
+        <div class="glass-heading">Stylistic Merit and Form</div>
+        <p class="note-text">Bacon's literary style is famously aphoristic. He packs profound meaning into concise, memorable sentences, avoiding flowery language or unnecessary ornamentation. He frequently employs a tripartite structure, balancing arguments with mathematical precision. There is no emotional bias in his writing; instead, he delivers his insights with the cold, authoritative clarity of a philosopher.</p>
+        <p class="note-text">These essays endure because they diagnose human nature with absolute honesty. By dissecting the mechanics of learning and the realities of familial duty, Bacon provides a masterclass in objective analysis. His pragmatic perspective remains essential for anyone preparing to shape young minds and guide developmental behavior.</p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
